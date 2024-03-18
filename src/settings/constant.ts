@@ -17,7 +17,7 @@ export const LoadingProcessState: TLoadingProcessState = {
 };
 
 export const MenuState: TMenuState = {
-  enabled: true,
+  enabled: false,
 };
 
 export const InitialState: IState = {

@@ -1,0 +1,15 @@
+.Drawer {
+  @apply w-screen h-full absolute top-0 right-0 pointer-events-none overflow-hidden;
+
+  & > div {
+    @apply w-full h-full bg-black duration-200 absolute right-0;
+  }
+
+  .open {
+    @apply right-0;
+  }
+
+  .close {
+    @apply -right-full;
+  }
+}

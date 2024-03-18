@@ -1,5 +1,5 @@
 .Menu {
-  @apply fixed right-8 top-8 flex flex-row space-x-5;
+  @apply fixed right-0 top-0;
 
   .burger {
     @apply w-20 h-20 border-2 border-black relative flex justify-center flex-col px-5 cursor-pointer duration-200;
@@ -15,7 +15,7 @@
     }
 
     &:hover {
-      @apply bg-black;
+      @apply bg-black border-white;
 
       & > div {
         @apply bg-white;
@@ -23,6 +23,46 @@
 
       & > div:nth-child(2) {
         @apply w-full;
+      }
+    }
+  }
+
+  .burger-revert {
+    @apply bg-black border-white;
+
+    & > div {
+      @apply bg-white;
+    }
+
+    & > div:nth-child(2) {
+      @apply w-0;
+    }
+
+    & > div:nth-child(1) {
+      transform: translateY(17px) rotate(45deg);
+    }
+
+    & > div:nth-child(3) {
+      transform: translateY(-17px) rotate(-45deg);
+    }
+
+    &:hover {
+      @apply bg-white border-black;
+
+      & > div {
+        @apply bg-black;
+      }
+
+      & > div:nth-child(2) {
+        @apply w-0;
+      }
+
+      & > div:nth-child(1) {
+        transform: translateY(17px) rotate(-45deg - 180deg) scale(1.5, 1);
+      }
+
+      & > div:nth-child(3) {
+        transform: translateY(-17px) rotate(45deg + 180deg) scale(1.5, 1);
       }
     }
   }

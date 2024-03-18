@@ -1,22 +1,23 @@
 import { Context } from '@/settings/constant';
-import { memo, useContext, useEffect } from 'react';
-import Button from '../button';
-import './index.less';
 import { ActionType } from '@/settings/type';
+import { memo, useContext } from 'react';
+import Button from '../button';
+import Burger from './burger';
+import Drawer from './drawer';
+import './index.less';
+import { REGISTRATION } from '@/settings/config';
 
 const Menu = memo(() => {
   const [context] = useContext(Context);
 
-  useEffect(() => {}, []);
   return (
     <div className='Menu'>
-      <Button>
-        <Button.MenuRegister revert={context[ActionType.Menu]?.enabled} />
-      </Button>
-      <div className='burger'>
-        {[...new Array(3).keys()].map((index) => {
-          return <div key={`b${index}`} />;
-        })}
+      <Drawer enabled={context[ActionType.Menu]?.enabled} />
+      <div className='absolute top-8 right-8 flex flex-row space-x-5'>
+        <Button onClick={() => window.open(REGISTRATION)}>
+          <Button.MenuRegister revert={context[ActionType.Menu]?.enabled} />
+        </Button>
+        <Burger />
       </div>
     </div>
   );
