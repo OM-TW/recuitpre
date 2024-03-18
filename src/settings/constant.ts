@@ -7,17 +7,23 @@ import {
   LoadingProcessType,
   TContext,
   TLoadingProcessState,
+  TMenuState,
 } from './type';
 
 export const LoadingProcessState: TLoadingProcessState = {
-  enabled: false,
+  enabled: true,
   type: LoadingProcessType.Spokes,
   body: '',
+};
+
+export const MenuState: TMenuState = {
+  enabled: true,
 };
 
 export const InitialState: IState = {
   [ActionType.Page]: PAGE.home,
   [ActionType.LoadingProcess]: LoadingProcessState,
+  [ActionType.Menu]: MenuState,
 };
 
 export const Context = createContext<TContext>([InitialState, () => {}]);

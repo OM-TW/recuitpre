@@ -1,11 +1,21 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
 
+export const HomePages = [
+  { page: 'landing', name: '首頁' },
+  { page: 'introduction', name: '計畫介紹' },
+];
+
 export enum HomeStepType {
-  unset = 0,
-  fadeIn = 1,
+  unset,
+  loaded,
+  fontLoaded,
 }
-export type THomeState = { step: HomeStepType };
+export type THomeState = {
+  step: HomeStepType;
+};
 export type THomeContext = [THomeState, Dispatch<SetStateAction<THomeState>>];
 
-export const HomeState = { step: HomeStepType.unset };
+export const HomeState: THomeState = {
+  step: HomeStepType.unset,
+};
 export const HomeContext = createContext<THomeContext>([HomeState, () => {}]);

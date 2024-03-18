@@ -1,28 +1,14 @@
-import { IReactProps, TransitionType } from '@/settings/type';
-import useTween from 'lesca-use-tween';
-import { useEffect } from 'react';
-import Regular from './regular';
-import { Debug } from '@/settings/type-unity';
+import { IReactProps } from '@/settings/type';
+import MenuRegister from './menuRegister';
 
-type TRegularProps = Debug<{
+type T = IReactProps & {
   onClick?: () => void;
-  transition?: TransitionType;
-}>;
-
-const Button = ({ children, onClick, transition }: IReactProps & TRegularProps) => {
-  const [style, setStyle] = useTween({ opacity: 0 });
-
-  useEffect(() => {
-    if (transition === TransitionType.FadeIn) setStyle({ opacity: 1 });
-  }, [setStyle, transition]);
-
-  return (
-    <button style={style} onClick={onClick}>
-      {children}
-    </button>
-  );
 };
 
-Button.regular = Regular;
+const Button = ({ children, onClick }: T) => {
+  return <button onClick={onClick}>{children}</button>;
+};
+
+Button.MenuRegister = MenuRegister;
 
 export default Button;

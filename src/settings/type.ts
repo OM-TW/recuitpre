@@ -3,6 +3,7 @@ import { Dispatch, ReactNode } from 'react';
 export enum ActionType {
   Page = 'page',
   LoadingProcess = 'loadingProcess',
+  Menu = 'menu',
 }
 
 export enum LoadingProcessType {
@@ -27,19 +28,24 @@ export enum TransitionType {
 }
 
 export type TLoadingProcessState = {
-  enabled?: boolean;
-  type?: LoadingProcessType;
-  body?: '';
+  enabled: boolean;
+  type: LoadingProcessType;
+  body: '';
+};
+
+export type TMenuState = {
+  enabled: boolean;
 };
 
 export interface IState {
   page?: string;
   loadingProcess?: TLoadingProcessState;
+  menu?: TMenuState;
 }
 
 export interface IAction {
-  state: IState | TLoadingProcessState;
   type: ActionType;
+  state: IState | Partial<TLoadingProcessState> | Partial<TMenuState>;
 }
 
 export type TContext = [IState, Dispatch<IAction>];

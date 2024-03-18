@@ -1,0 +1,49 @@
+.MenuRegister {
+  @apply w-60 h-20 border-2 border-black relative flex justify-center items-center flex-col;
+
+  & > span {
+    @apply font-noto-black text-lg pr-5 font-black uppercase;
+  }
+
+  & > span:nth-child(1) {
+    letter-spacing: 0.3rem;
+  }
+
+  &::after {
+    position: absolute;
+    width: image-width(@img) * @scale;
+    height: image-height(@img) * @scale;
+    content: '';
+
+    mask-image: url(@img);
+    mask-size: 100%;
+    @scale: 0.66;
+    @img: './img/arrow.png';
+
+    @apply bg-black right-5;
+  }
+
+  &:hover {
+    @apply bg-black text-white border-white;
+
+    &::after {
+      @apply bg-white;
+    }
+  }
+}
+
+.MenuRegisterRevert {
+  @apply bg-black text-white border-white;
+
+  &::after {
+    @apply bg-white;
+  }
+
+  &:hover {
+    @apply bg-white text-black border-black;
+
+    &::after {
+      @apply bg-black;
+    }
+  }
+}

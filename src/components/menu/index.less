@@ -1,0 +1,29 @@
+.Menu {
+  @apply fixed right-8 top-8 flex flex-row space-x-5;
+
+  .burger {
+    @apply w-20 h-20 border-2 border-black relative flex justify-center flex-col px-5 cursor-pointer duration-200;
+
+    & > div {
+      margin: 7px 0;
+      height: 3px;
+      @apply bg-black w-full duration-200;
+    }
+
+    & > div:nth-child(2) {
+      @apply w-1/2;
+    }
+
+    &:hover {
+      @apply bg-black;
+
+      & > div {
+        @apply bg-white;
+      }
+
+      & > div:nth-child(2) {
+        @apply w-full;
+      }
+    }
+  }
+}
