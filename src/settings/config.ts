@@ -7,3 +7,7 @@ export const REST_PATH = {
 };
 
 export const REGISTRATION = 'https://www.google.com/';
+export const SOCIAL = {
+  Facebook: 'https://www.facebook.com/OgilvyTaiwan/',
+  Instagram: 'https://www.facebook.com/OgilvyTaiwan/',
+};

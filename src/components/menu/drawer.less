@@ -3,6 +3,45 @@
 
   & > div {
     @apply w-full h-full bg-black duration-200 absolute right-0;
+
+    .context {
+      @apply w-full h-full pt-52 text-white flex flex-col md:flex-row justify-between pointer-events-auto;
+
+      & > div {
+        @apply h-full;
+      }
+
+      & > div:first-child {
+        @apply flex-1;
+      }
+
+      & > div:nth-child(2) {
+        @apply w-96 flex flex-col justify-end pb-20;
+
+        h2 {
+          @apply text-2xl font-bold font-noto-bold mb-1;
+        }
+        span {
+          @apply text-sm font-noto-regular font-normal uppercase;
+        }
+
+        div {
+          @apply w-full flex flex-row justify-between items-end mt-5;
+
+          .contacts {
+            @apply flex flex-col justify-start items-start pb-3;
+
+            a {
+              @apply underline hover:bg-white hover:text-black;
+            }
+          }
+
+          .socials {
+            @apply flex flex-row justify-start items-end;
+          }
+        }
+      }
+    }
   }
 
   .open {
