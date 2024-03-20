@@ -1,1 +1,0 @@
-import{r as t,j as o}from"./index-bwicd8M6.js";import{D as r}from"./index-BJV89d1x.js";const i=t.memo(()=>(t.useEffect(()=>{},[]),o.jsx(r,{id:"introduction",className:"Introduction"})));export{i as default};
