@@ -1,17 +1,19 @@
 import { memo, useContext, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import './carousel.less';
 import { ValuesCarousels, ValuesContext } from './config';
+import { twMerge } from 'tailwind-merge';
 
 type T = {
   data: (typeof ValuesCarousels)[number];
   width: number | undefined;
+  index: number;
 };
 
-const Slide = memo(({ data, width }: T) => {
+const Slide = memo(({ data, width, index }: T) => {
   return (
     <div style={{ width: `${width}px` }}>
       <div className='context'>
-        <div className='image' />
+        <div className={twMerge('image', `img-${index}`)} />
         <div className='texts'>
           <div className='name'>{data.name}</div>
           <div className='brief'>{data.brief}</div>
@@ -42,8 +44,8 @@ const Carousel = memo(() => {
   return (
     <div ref={ref} className='Carousel'>
       <div style={{ width: `${ValuesCarousels.length * 100}%`, transform: `translateX(${x}%)` }}>
-        {ValuesCarousels.map((data) => {
-          return <Slide key={JSON.stringify(data)} data={data} width={width} />;
+        {ValuesCarousels.map((data, index) => {
+          return <Slide key={JSON.stringify(data)} data={data} width={width} index={index} />;
         })}
       </div>
     </div>

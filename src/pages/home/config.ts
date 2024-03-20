@@ -4,6 +4,7 @@ export const HomePages = [
   { page: 'landing', name: '首頁' },
   { page: 'introduction', name: '計畫介紹' },
   { page: 'values', name: '五大珍奇異獸​' },
+  { page: 'position', name: '招募職位' },
 ];
 
 export enum HomeStepType {

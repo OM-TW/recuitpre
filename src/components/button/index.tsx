@@ -3,6 +3,7 @@ import Facebook from './facebook';
 import Instagram from './instagram';
 import MenuRegister from './menuRegister';
 import MenuRegular from './menuRegular';
+import Position from './position';
 
 type T = IReactProps & {
   onClick?: () => void;
@@ -21,5 +22,6 @@ Button.MenuRegister = MenuRegister;
 Button.Facebook = Facebook;
 Button.Instagram = Instagram;
 Button.MenuRegular = MenuRegular;
+Button.Position = Position;
 
 export default Button;

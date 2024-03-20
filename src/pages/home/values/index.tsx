@@ -12,8 +12,9 @@ const Prev = memo(() => {
 
   return (
     <div className={twMerge('prev', state.index === 0 ? 'invisible' : 'visible')}>
-      <div className='icon' />
+      <div className={twMerge('icon', `ico-${state.index - 1}`)} />
       <Button
+        className='btn-group-prev'
         onClick={() => {
           setState((S) => ({ ...S, index: S.index - 1 }));
         }}
@@ -37,6 +38,7 @@ const Next = memo(() => {
       )}
     >
       <Button
+        className='btn-group-next'
         onClick={() => {
           setState((S) => ({ ...S, index: S.index + 1 }));
         }}
@@ -46,7 +48,7 @@ const Next = memo(() => {
           <div />
         </div>
       </Button>
-      <div className='icon' />
+      <div className={twMerge('icon', `ico-${state.index + 1}`)} />
     </div>
   );
 });
@@ -56,7 +58,7 @@ const Values = memo(() => {
 
   return (
     <ValuesContext.Provider value={value}>
-      <Div100vh className='Values'>
+      <Div100vh id='values' className='Values'>
         <Article>
           <div className='w-full relative px-5 md:px-12 lg:px-24 h-full pt-10'>
             <h3>Ogilvy Values</h3>

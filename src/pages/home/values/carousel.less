@@ -1,5 +1,5 @@
 .Carousel {
-  @apply w-full whitespace-nowrap overflow-hidden;
+  @apply w-full whitespace-nowrap overflow-hidden py-10;
 
   & > div {
     @apply float-left duration-500 ease-in-out;
@@ -10,10 +10,87 @@
       .context {
         @apply w-full relative flex flex-row justify-center space-x-5 md:space-x-10 pt-10;
 
+        .img-0 {
+          &::after {
+            margin-top: 0 - image-height(@img) * @scale * 0.5 - 20px;
+            margin-left: 0 - image-width(@img) * @scale * 0.5;
+            width: image-width(@img) * @scale;
+            height: image-height(@img) * @scale;
+            background-image: url(@img);
+
+            @scale: 2;
+            @img: './img/animals-0.svg';
+          }
+        }
+
+        .img-1 {
+          &::after {
+            margin-top: 0 - image-height(@img) * @scale * 0.5;
+            margin-left: 0 - image-width(@img) * @scale * 0.5;
+            width: image-width(@img) * @scale;
+            height: image-height(@img) * @scale;
+            background-image: url(@img);
+            transform: scale(-1, 1);
+
+            @scale: 2;
+            @img: './img/animals-1.svg';
+          }
+        }
+
+        .img-2 {
+          &::after {
+            margin-top: 0 - image-height(@img) * @scale * 0.5 - 50px;
+            margin-left: 0 - image-width(@img) * @scale * 0.5;
+            width: image-width(@img) * @scale;
+            height: image-height(@img) * @scale;
+            background-image: url(@img);
+
+            @scale: 1.3;
+            @img: './img/animals-2.svg';
+          }
+        }
+
+        .img-3 {
+          &::after {
+            margin-top: 0 - image-height(@img) * @scale * 0.5;
+            margin-left: 0 - image-width(@img) * @scale * 0.5 - 20px;
+            width: image-width(@img) * @scale;
+            height: image-height(@img) * @scale;
+            background-image: url(@img);
+            transform: scale(-1, 1);
+
+            @scale: 0.6;
+            @img: './img/animals-3.svg';
+          }
+        }
+
+        .img-4 {
+          &::after {
+            margin-top: 0 - image-height(@img) * @scale * 0.5 - 30px;
+            margin-left: 0 - image-width(@img) * @scale * 0.5;
+            width: image-width(@img) * @scale;
+            height: image-height(@img) * @scale;
+            background-image: url(@img);
+
+            @scale: 1;
+            @img: './img/animals-4.svg';
+          }
+        }
+
         .image {
           width: 350px;
           height: 350px;
-          @apply bg-gray-500;
+
+          @apply relative;
+
+          &::after {
+            top: 50%;
+            left: 50%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            content: '';
+            @apply absolute;
+          }
 
           @media only screen and (max-width: 768px) {
             & {

@@ -1,0 +1,66 @@
+.Dialog {
+  background-color: #eeeeee;
+  @apply relative w-full p-10 my-10 border border-black flex flex-col justify-start items-start space-y-5;
+
+  .title {
+    @apply text-2xl font-noto-bold font-bold text-backgroundColor;
+  }
+
+  .headline {
+    @apply w-1/2 flex flex-row justify-between items-center;
+
+    & > div:nth-child(1) {
+      @apply pr-8 font-bold font-noto-bold text-2xl;
+    }
+
+    &::after {
+      height: 0.5px;
+      content: '';
+
+      @apply flex-1 bg-black;
+    }
+  }
+
+  .body {
+    @apply text-xl font-normal font-noto-regular;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    padding-left: 80px;
+    height: 100%;
+    background-image: url(@img);
+    background-size: 300% 100%;
+    content: '';
+
+    @img: './img/side.png';
+  }
+
+  &::after {
+    top: -26px;
+    width: image-width(@img) * @scale;
+    height: image-height(@img) * @scale;
+    background-image: url(@img);
+    background-size: 100%;
+    content: '';
+
+    @scale: 0.66;
+    @img: './img/arrow.png';
+
+    @apply absolute;
+  }
+}
+
+.r0 {
+  &::after {
+    left: 21.2%;
+  }
+}
+
+.r1 {
+  &::after {
+    left: 72%;
+  }
+}
