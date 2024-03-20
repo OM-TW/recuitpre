@@ -2,7 +2,8 @@
   @apply w-screen h-full absolute top-0 right-0 pointer-events-none overflow-hidden;
 
   & > div {
-    @apply w-full h-full bg-black duration-200 absolute right-0;
+    background-color: rgba(0, 0, 0, 0.9);
+    @apply w-full h-full duration-200 absolute right-0;
 
     .context {
       @apply w-full h-full pt-52 text-white flex flex-col md:flex-row justify-between pointer-events-auto;
@@ -12,11 +13,11 @@
       }
 
       & > div:first-child {
-        @apply flex-1;
+        @apply flex-1 flex flex-col lg:flex-row justify-center items-center pl-5 lg:pl-36;
       }
 
       & > div:nth-child(2) {
-        @apply w-96 flex flex-col justify-end pb-20;
+        @apply w-96 flex flex-col justify-end pb-20 pl-10 lg:pl-0;
 
         h2 {
           @apply text-2xl font-bold font-noto-bold mb-1;

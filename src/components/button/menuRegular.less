@@ -1,0 +1,25 @@
+.menuRegular {
+  @apply flex flex-col items-start px-5;
+
+  & > div {
+    @apply px-0;
+
+    & > span:nth-child(1) {
+      @apply text-4xl;
+    }
+
+    & > span:nth-child(2) {
+      @apply text-base;
+    }
+
+    & > span {
+      @apply flex flex-row;
+    }
+  }
+
+  &:hover {
+    & > div {
+      @apply bg-white text-black;
+    }
+  }
+}

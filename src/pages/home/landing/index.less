@@ -1,3 +1,105 @@
 .Landing {
-  @apply w-full;
+  @apply w-full relative overflow-hidden;
+
+  .symbols {
+    max-width: 900px;
+    @apply w-full h-full absolute right-0 flex items-end pl-5 lg:pl-0 pr-5 md:pr-20;
+
+    @media only screen and (max-width: 1280px) {
+      & {
+        max-width: 800px;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      & {
+        max-width: 640px;
+      }
+    }
+
+    &::before {
+      margin-bottom: -12%;
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+      width: 100%;
+      background-image: url(@img);
+      background-size: cover;
+      content: '';
+
+      @img: './img/symbols.svg';
+      @apply inline-block;
+    }
+
+    .headline {
+      bottom: 33%;
+      left: 0%;
+      margin-left: -49%;
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @scale);
+      width: @scale;
+      background-image: url(@img);
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      @scale: 65%;
+      @img: './img/headline.svg';
+
+      @apply absolute;
+
+      @media only screen and (max-width: 1280px) {
+        & {
+          bottom: 45%;
+          margin-left: -26%;
+        }
+      }
+
+      @media only screen and (max-width: 1024px) {
+        & {
+          bottom: 53%;
+          margin-left: 3%;
+        }
+      }
+
+      @media only screen and (max-width: 768px) {
+        & {
+          bottom: 50%;
+          margin-left: 12%;
+          padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @scale);
+          width: @scale;
+
+          @scale: 75%;
+        }
+      }
+    }
+  }
+
+  .cfa {
+    transform: translateY(-100%) rotate(90deg);
+
+    @apply w-32 h-32 absolute bottom-10 left-10 flex flex-row items-end space-x-3 origin-bottom-left justify-between select-none;
+
+    .text {
+      @apply font-black font-noto-black text-base;
+    }
+
+    @keyframes point {
+      0% {
+        transform: translateX(6px);
+      }
+      100% {
+        transform: translateX(0px);
+      }
+    }
+
+    .arrow {
+      width: image-width(@img) * @scale;
+      height: image-height(@img) * @scale;
+      animation: point 0.5s ease-in-out infinite alternate;
+
+      mask-image: url(@img);
+      mask-size: 100%;
+      @scale: 0.7;
+      @img: './img/arrow.png';
+
+      @apply bg-black mb-1;
+    }
+  }
 }

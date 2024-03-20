@@ -1,21 +1,59 @@
-import { memo, useEffect } from 'react';
-import './drawer.less';
+import { MENU_ITEMS, SOCIAL } from '@/settings/config';
+import { memo, useContext, useMemo } from 'react';
 import Div100vh from 'react-div-100vh';
 import { twMerge } from 'tailwind-merge';
 import Button from '../button';
-import { SOCIAL } from '@/settings/config';
+import './drawer.less';
+import { Context } from '@/settings/constant';
+import { ActionType } from '@/settings/type';
 
 type T = {
   enabled?: boolean;
 };
 
+const Item = memo(({ data }: { data: (typeof MENU_ITEMS)[number] }) => {
+  const [, setContext] = useContext(Context);
+  return (
+    <Button
+      className='menuRegular'
+      onClick={() => {
+        window.location.hash = data.hash;
+        setContext({ type: ActionType.Menu, state: { enabled: false } });
+      }}
+    >
+      <Button.MenuRegular>
+        <span>{data.name}</span>
+        <span>{data.subName}</span>
+      </Button.MenuRegular>
+    </Button>
+  );
+});
+
 const Drawer = memo(({ enabled }: T) => {
-  useEffect(() => {}, [enabled]);
+  const currentItems = useMemo(() => {
+    const front = MENU_ITEMS.filter((_, index) => index < 3);
+    const back = MENU_ITEMS.filter((_, index) => index >= 3);
+    return [front, back];
+  }, [MENU_ITEMS]);
+
   return (
     <Div100vh className='Drawer'>
       <div className={twMerge(enabled ? 'open' : 'close')}>
         <div className='context'>
-          <div></div>
+          <div>
+            <div className='flex flex-col lg:flex-row w-full space-y-5 lg:space-y-0'>
+              {currentItems.map((items, index) => (
+                <div
+                  className='w-full lg:w-1/2 space-y-5 flex flex-col justify-start items-start'
+                  key={index}
+                >
+                  {items.map((item, index) => (
+                    <Item key={index} data={item} />
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
           <div>
             <h2>台灣奧美新人才來計劃聯絡資訊</h2>
             <span>Contact us</span>

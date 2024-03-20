@@ -1,0 +1,45 @@
+.Carousel {
+  @apply w-full whitespace-nowrap overflow-hidden;
+
+  & > div {
+    @apply float-left duration-500 ease-in-out;
+
+    & > div {
+      @apply inline-block whitespace-break-spaces;
+
+      .context {
+        @apply w-full relative flex flex-row justify-center space-x-5 md:space-x-10 pt-10;
+
+        .image {
+          width: 350px;
+          height: 350px;
+          @apply bg-gray-500;
+
+          @media only screen and (max-width: 768px) {
+            & {
+              width: 250px;
+              height: 250px;
+            }
+          }
+        }
+
+        .texts {
+          max-width: 650px;
+          @apply flex-1 w-full space-y-5 text-white;
+
+          .name {
+            @apply text-4xl xl:text-5xl font-bold;
+          }
+
+          .brief {
+            @apply text-xl xl:text-2xl bg-backgroundColor w-fit p-3;
+          }
+
+          .description {
+            @apply text-xl xl:text-2xl p-3 leading-loose;
+          }
+        }
+      }
+    }
+  }
+}

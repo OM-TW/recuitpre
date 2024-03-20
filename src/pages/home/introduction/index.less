@@ -1,2 +1,48 @@
 .Introduction {
+  min-height: 700px;
+  @apply relative overflow-hidden;
+  h1 {
+    @apply font-noto-bold font-bold text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  h3 {
+    @apply font-noto-bold font-bold text-xl uppercase;
+  }
+
+  p {
+    @apply my-10 text-xl lg:text-2xl font-noto-medium font-normal leading-loose;
+
+    @media only screen and (min-width: 1024px) {
+      & {
+        line-height: 3rem;
+      }
+    }
+  }
+
+  &::before {
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    margin-left: 15%;
+    width: image-width(@img) * @scale;
+    height: image-height(@img) * @scale;
+    background-image: url(@img);
+    background-size: 100%;
+    content: '';
+
+    @scale: 1;
+    @img: './img/symbols.svg';
+
+    @media only screen and (max-height: 900px) {
+      & {
+        margin-left: 10%;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      & {
+        margin-left: 0;
+      }
+    }
+  }
 }

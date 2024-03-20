@@ -1,0 +1,122 @@
+.Values {
+  min-height: 700px;
+
+  @apply relative overflow-hidden;
+
+  h1 {
+    @apply font-noto-bold font-bold text-4xl lg:text-5xl xl:text-6xl text-white;
+  }
+
+  h3 {
+    @apply font-noto-bold font-bold text-xl uppercase text-white mb-5;
+  }
+
+  span {
+    @apply text-white font-noto-bold font-bold text-2xl;
+  }
+
+  p {
+    @apply my-10 text-xl lg:text-2xl font-noto-medium font-normal leading-loose;
+
+    @media only screen and (min-width: 1024px) {
+      & {
+        line-height: 3rem;
+      }
+    }
+  }
+
+  &::before {
+    position: absolute;
+    left: 50%;
+    margin-left: -25%;
+    width: 70%;
+    height: 100%;
+    content: '';
+    transform: skew(45deg);
+    @apply bg-primary;
+
+    @media only screen and (max-width: 768px) {
+      & {
+        transform: skew(30deg);
+      }
+    }
+  }
+
+  .prev,
+  .next {
+    @apply flex flex-row items-center space-x-5;
+
+    .icon {
+      @apply w-20 h-20 bg-gray-500;
+    }
+
+    .btn {
+      @apply flex flex-row items-center;
+    }
+  }
+
+  .prev {
+    .btn {
+      & > div:first-child {
+        width: image-width(@img) * @scale;
+        height: image-height(@img) * @scale;
+        background-image: url(@img);
+        background-position: center;
+        background-size: 8px;
+        background-repeat: no-repeat;
+
+        @scale: 1;
+        @img: './img/arrow.png';
+
+        @apply w-10 h-10 bg-white rounded-full flex justify-center items-center;
+      }
+
+      & > div:nth-child(2) {
+        width: 135px;
+        height: 1px;
+        @apply bg-white relative;
+
+        &::before {
+          position: absolute;
+          right: 0;
+          bottom: 7px;
+          content: 'PREV';
+          @apply text-white text-xs;
+        }
+      }
+    }
+  }
+
+  .next {
+    .btn {
+      & > div:nth-child(2) {
+        width: image-width(@img) * @scale;
+        height: image-height(@img) * @scale;
+        background-image: url(@img);
+        background-position: center;
+        background-size: 8px;
+        background-repeat: no-repeat;
+        transform: scale(-1, 1);
+
+        @scale: 1;
+        @img: './img/arrow.png';
+
+        @apply w-10 h-10 bg-white rounded-full flex justify-center items-center;
+      }
+
+      & > div:nth-child(1) {
+        width: 135px;
+        height: 1px;
+        @apply bg-white relative;
+
+        &::before {
+          position: absolute;
+          bottom: 7px;
+          left: 0;
+          content: 'NEXT';
+          @apply text-white text-xs;
+        }
+      }
+    }
+  }
+}

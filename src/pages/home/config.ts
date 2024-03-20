@@ -3,6 +3,7 @@ import { createContext, Dispatch, SetStateAction } from 'react';
 export const HomePages = [
   { page: 'landing', name: '首頁' },
   { page: 'introduction', name: '計畫介紹' },
+  { page: 'values', name: '五大珍奇異獸​' },
 ];
 
 export enum HomeStepType {
