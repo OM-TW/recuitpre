@@ -16,7 +16,7 @@ const Prev = memo(() => {
       <Button
         className='btn-group-prev'
         onClick={() => {
-          setState((S) => ({ ...S, index: S.index - 1 }));
+          setState((S) => ({ ...S, index: Math.max(S.index - 1, 0) }));
         }}
       >
         <div className='btn'>
@@ -40,7 +40,7 @@ const Next = memo(() => {
       <Button
         className='btn-group-next'
         onClick={() => {
-          setState((S) => ({ ...S, index: S.index + 1 }));
+          setState((S) => ({ ...S, index: Math.min(S.index + 1, ValuesCarousels.length - 1) }));
         }}
       >
         <div className='btn'>

@@ -22,7 +22,7 @@ export const MenuState: TMenuState = {
 };
 
 export const AlertState: TAlert = {
-  enabled: true,
+  enabled: false,
 };
 
 export const InitialState: IState = {
