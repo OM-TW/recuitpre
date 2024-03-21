@@ -20,4 +20,4 @@ jobs:
           remote-user: ${{ secrets.FTP_USERNAME }}
           private-ssh-key: ${{ secrets.FTP_SSH_KEY }}
           destination-path: /var/www/html/ogilvyrecuitpre.cecmartech.com/public/test
-          source-path: ./dist
+          source-path: /dist
