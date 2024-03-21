@@ -5,16 +5,15 @@ import Button from '../button';
 import Burger from './burger';
 import Drawer from './drawer';
 import './index.less';
-import { REGISTRATION } from '@/settings/config';
 
 const Menu = memo(() => {
-  const [context] = useContext(Context);
+  const [context, setContext] = useContext(Context);
 
   return (
     <div className='Menu'>
       <Drawer enabled={context[ActionType.Menu]?.enabled} />
       <div className='absolute top-8 right-8 flex flex-row space-x-5'>
-        <Button onClick={() => window.open(REGISTRATION)}>
+        <Button onClick={() => setContext({ type: ActionType.Alert, state: { enabled: true } })}>
           <Button.MenuRegister revert={context[ActionType.Menu]?.enabled} />
         </Button>
         <Burger />

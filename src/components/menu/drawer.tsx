@@ -1,4 +1,4 @@
-import { MENU_ITEMS, SOCIAL } from '@/settings/config';
+import { CONTACT, MENU_ITEMS, SOCIAL } from '@/settings/config';
 import { memo, useContext, useMemo } from 'react';
 import Div100vh from 'react-div-100vh';
 import { twMerge } from 'tailwind-merge';
@@ -59,12 +59,13 @@ const Drawer = memo(({ enabled }: T) => {
             <span>Contact us</span>
             <div>
               <div className='contacts'>
-                <a className='underline' href='mailto:xxx'>
-                  Nick Shih
-                </a>
-                <a className='underline' href='mailto:xxx'>
-                  Robert Kung
-                </a>
+                {CONTACT.map((data) => {
+                  return (
+                    <a key={JSON.stringify(data)} className='underline' href={data.email}>
+                      {data.name}
+                    </a>
+                  );
+                })}
               </div>
               <div className='socials'>
                 <Button onClick={() => window.open(SOCIAL.Facebook)}>

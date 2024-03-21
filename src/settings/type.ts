@@ -4,6 +4,7 @@ export enum ActionType {
   Page = 'page',
   LoadingProcess = 'loadingProcess',
   Menu = 'menu',
+  Alert = 'alert',
 }
 
 export enum LoadingProcessType {
@@ -37,15 +38,20 @@ export type TMenuState = {
   enabled: boolean;
 };
 
+export type TAlert = {
+  enabled: boolean;
+};
+
 export interface IState {
   page?: string;
   loadingProcess?: TLoadingProcessState;
   menu?: TMenuState;
+  alert?: TAlert;
 }
 
 export interface IAction {
   type: ActionType;
-  state: IState | Partial<TLoadingProcessState> | Partial<TMenuState>;
+  state: IState | Partial<TLoadingProcessState> | Partial<TMenuState> | Partial<TAlert>;
 }
 
 export type TContext = [IState, Dispatch<IAction>];

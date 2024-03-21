@@ -1,0 +1,97 @@
+.Footer {
+  @apply overflow-hidden;
+
+  h1 {
+    @apply text-4xl lg:text-5xl font-bold font-noto-bold;
+  }
+
+  .register {
+    max-width: 500px;
+    @apply w-full flex flex-row justify-start items-center border border-black mt-36 p-5;
+
+    .texts {
+      @apply w-52 flex flex-col justify-center;
+
+      & > span {
+        @apply w-full font-noto-bold font-bold my-1;
+      }
+
+      & > span:nth-child(1) {
+        @apply text-2xl tracking-widest;
+      }
+
+      & > span:nth-child(2) {
+        @apply text-xl tracking-wide;
+      }
+    }
+
+    .arrow {
+      width: image-width(@img) * @scale;
+      height: image-height(@img) * @scale;
+
+      mask-image: url(@img);
+      mask-size: 35%;
+      mask-position: center;
+      mask-repeat: no-repeat;
+      @scale: 0.66;
+      @img: '../../../components/button/img/arrow.png';
+      @apply w-10 h-full bg-black duration-200;
+    }
+
+    .symbols {
+      @apply flex-1 h-full relative;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: 0 - image-height(@img) * @scale * 0.5;
+        margin-left: 0 - image-width(@img) * @scale * 0.5 + 85px;
+        width: image-width(@img) * @scale;
+        height: image-height(@img) * @scale;
+        background-image: url(@img);
+        background-size: 100%;
+        content: '';
+        pointer-events: none;
+
+        @scale: 0.4;
+        @img: '../landing/img/symbols.svg';
+      }
+    }
+
+    &:hover {
+      @apply bg-black;
+
+      .texts {
+        @apply text-white;
+      }
+
+      .arrow {
+        transform: translateX(10px);
+        @apply bg-white;
+      }
+    }
+  }
+
+  .scrollTopButton {
+    @apply absolute w-20 h-20 border border-white top-1/2 right-16 -mt-10;
+
+    & > div {
+      mask-image: url(@img);
+      mask-size: 50%;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      @scale: 1;
+      @img: './img/arrow.png';
+
+      @apply w-full h-full bg-white;
+    }
+
+    &:hover {
+      @apply bg-white;
+      & > div {
+        @apply bg-black;
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.Exclusive {
+  .box {
+    min-width: 520px;
+    @apply w-1/2 flex justify-center items-center p-10 select-none;
+
+    .content {
+      padding-bottom: 100%;
+      @apply w-full bg-black relative;
+
+      .indicator {
+        @apply absolute w-12 h-12 bg-black -left-3 -top-4 text-backgroundColor flex justify-center items-center font-bold text-2xl font-noto-bold;
+      }
+
+      & > div {
+        @apply absolute top-0 left-0 right-0 bottom-0 p-5;
+
+        .photo {
+          padding-bottom: 10/16 * 100%;
+          background-position: center;
+          background-repeat: no-repeat;
+          @apply w-full bg-backgroundColor;
+        }
+
+        .ico-0 {
+          background-image: url('./img/ico-0.svg');
+          background-size: 32%;
+        }
+
+        .ico-1 {
+          background-image: url('./img/ico-1.svg');
+          background-size: 33%;
+        }
+
+        .ico-2 {
+          background-image: url('./img/ico-2.svg');
+          background-size: 30%;
+        }
+
+        .ico-3 {
+          background-image: url('./img/ico-3.svg');
+          background-size: 33%;
+        }
+
+        .title {
+          @apply text-white text-3xl font-noto-bold font-bold;
+        }
+
+        .subtitle {
+          color: #a6a6a8;
+          @apply text-lg mt-5;
+        }
+      }
+    }
+  }
+}

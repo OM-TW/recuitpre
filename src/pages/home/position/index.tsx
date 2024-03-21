@@ -10,7 +10,7 @@ const Position = memo(() => {
 
   useEffect(() => {}, []);
   return (
-    <div className='Position'>
+    <div id='position' className='Position'>
       <PositionContext.Provider value={value}>
         <Article>
           <div className='w-full relative px-5 md:px-12 lg:px-24 h-full pt-10 pb-10'>

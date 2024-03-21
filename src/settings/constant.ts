@@ -5,6 +5,7 @@ import {
   IAction,
   IState,
   LoadingProcessType,
+  TAlert,
   TContext,
   TLoadingProcessState,
   TMenuState,
@@ -20,10 +21,15 @@ export const MenuState: TMenuState = {
   enabled: false,
 };
 
+export const AlertState: TAlert = {
+  enabled: true,
+};
+
 export const InitialState: IState = {
   [ActionType.Page]: PAGE.home,
   [ActionType.LoadingProcess]: LoadingProcessState,
   [ActionType.Menu]: MenuState,
+  [ActionType.Alert]: AlertState,
 };
 
 export const Context = createContext<TContext>([InitialState, () => {}]);

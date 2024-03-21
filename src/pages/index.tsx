@@ -1,3 +1,4 @@
+import Alert from '@/components/alert';
 import LoadingProcess from '@/components/loadingProcess';
 import { PAGE } from '@/settings/config';
 import { Context, InitialState, Reducer } from '@/settings/constant';
@@ -48,6 +49,7 @@ const App = () => {
       <Context.Provider {...{ value }}>
         <Pages />
         {state[ActionType.LoadingProcess]?.enabled && <LoadingProcess />}
+        {state[ActionType.Alert]?.enabled && <Alert />}
       </Context.Provider>
     </div>
   );

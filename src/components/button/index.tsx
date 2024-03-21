@@ -8,11 +8,12 @@ import Position from './position';
 type T = IReactProps & {
   onClick?: () => void;
   className?: string;
+  onMouseOver?: () => void;
 };
 
-const Button = ({ children, onClick, className }: T) => {
+const Button = ({ children, onClick, className, onMouseOver }: T) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button className={className} onClick={onClick} onMouseOver={onMouseOver}>
       {children}
     </button>
   );

@@ -1,0 +1,52 @@
+.Alert {
+  background-color: rgba(0, 0, 0, 0.8);
+  @apply fixed w-full h-full top-0 left-0 flex justify-center items-center;
+
+  .close {
+    @apply w-16 h-16 border border-white relative;
+
+    &::before,
+    &::after {
+      margin-left: 70% * -0.5;
+      width: 70%;
+      height: 2px;
+      content: '';
+
+      @apply absolute top-1/2 left-1/2 bg-white;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .dialog {
+    max-width: 1280px;
+    width: 90vw;
+
+    @apply px-5 bg-white flex flex-row space-x-10 py-32;
+
+    .btn {
+      @apply w-1/2 py-5 border border-black flex flex-col justify-center items-center space-y-2;
+
+      & > span:nth-child(1) {
+        @apply text-3xl font-noto-bold font-bold;
+      }
+      & > span:nth-child(2) {
+        @apply text-lg;
+      }
+    }
+
+    .active {
+      @apply border-backgroundColor;
+
+      & > span {
+        @apply text-backgroundColor;
+      }
+    }
+  }
+}
