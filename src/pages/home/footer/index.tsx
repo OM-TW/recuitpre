@@ -1,9 +1,9 @@
-import { memo, useEffect } from 'react';
-import './index.less';
-import Div100vh from 'react-div-100vh';
 import Article from '@/components/article';
 import Button from '@/components/button';
 import { CONTACT } from '@/settings/config';
+import { memo, useEffect } from 'react';
+import Div100vh from 'react-div-100vh';
+import './index.less';
 
 const Info = memo(() => {
   return (
@@ -15,7 +15,7 @@ const Info = memo(() => {
             return (
               <a
                 key={JSON.stringify(data)}
-                href={data.email}
+                href={`mailto:${data.email}`}
                 className='text-base underline underline-offset-4 font-light font-noto-regular hover:bg-white hover:text-black'
               >
                 {data.name}

@@ -1,7 +1,7 @@
 import { memo, useContext, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { twMerge } from 'tailwind-merge';
 import './carousel.less';
 import { ValuesCarousels, ValuesContext } from './config';
-import { twMerge } from 'tailwind-merge';
 
 type T = {
   data: (typeof ValuesCarousels)[number];

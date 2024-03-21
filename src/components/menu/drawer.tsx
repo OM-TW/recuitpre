@@ -61,7 +61,11 @@ const Drawer = memo(({ enabled }: T) => {
               <div className='contacts'>
                 {CONTACT.map((data) => {
                   return (
-                    <a key={JSON.stringify(data)} className='underline' href={data.email}>
+                    <a
+                      key={JSON.stringify(data)}
+                      className='underline'
+                      href={`mailto:${data.email}`}
+                    >
                       {data.name}
                     </a>
                   );

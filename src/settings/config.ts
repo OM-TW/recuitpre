@@ -27,10 +27,10 @@ export const MENU_ITEMS = [
 export const CONTACT = [
   {
     name: 'Nick Shih',
-    email: 'mailto:xxx',
+    email: 'nicksy.shih@ogilvy.com',
   },
   {
     name: 'Robert Kung',
-    email: 'mailto:xxx',
+    email: 'robertcl.kung@ogilvy.com',
   },
 ];
