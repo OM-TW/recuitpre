@@ -1,7 +1,9 @@
 import Article from '@/components/article';
 import Button from '@/components/button';
 import { CONTACT } from '@/settings/config';
-import { memo, useEffect } from 'react';
+import { Context } from '@/settings/constant';
+import { ActionType } from '@/settings/type';
+import { memo, useContext } from 'react';
 import Div100vh from 'react-div-100vh';
 import './index.less';
 
@@ -37,14 +39,19 @@ const Info = memo(() => {
 });
 
 const Footer = memo(() => {
-  useEffect(() => {}, []);
+  const [, setContext] = useContext(Context);
   return (
     <Div100vh className='Footer'>
       <Article>
         <div className='w-full h-full flex flex-col justify-start items-center'>
           <div className='w-full flex-1 flex justify-center items-center flex-col'>
             <h1>來吧，這場遊戲，你一定贏！</h1>
-            <Button className='register'>
+            <Button
+              className='register'
+              onClick={() => {
+                setContext({ type: ActionType.Alert, state: { enabled: true } });
+              }}
+            >
               <div className='texts'>
                 <span>立即報名</span>
                 <span>REGISTER</span>
