@@ -1,0 +1,91 @@
+.Grid {
+  @apply w-full p-5 lg:p-12 mt-36;
+
+  .content {
+    gap: 1px;
+    @apply grid grid-cols-12 pb-36;
+
+    & > div {
+      padding-bottom: 100%;
+      @apply w-full relative pointer-events-none;
+
+      & > div {
+        @apply absolute top-0 left-0 right-0 bottom-0 text-white;
+      }
+
+      .start {
+        width: calc(~'300% + 3rem');
+        @apply absolute h-full bg-black -left-5 lg:-left-12 uppercase flex flex-row justify-end items-center z-10 px-5;
+        @apply text-xs md:text-sm lg:text-2xl font-bold font-noto-bold select-none whitespace-pre-line;
+
+        @media only screen and (max-width: 1024px) {
+          & {
+            width: calc(~'300% + 1.25rem');
+          }
+        }
+
+        &::after {
+          width: image-width(@img) * @scale;
+          height: image-height(@img) * @scale;
+          background-image: url(@img);
+          background-size: 100%;
+          content: '';
+
+          @scale: 0.7;
+          @img: './img/arrow-0.png';
+
+          @apply ml-5;
+
+          @media only screen and (max-width: 768px) {
+            & {
+              width: image-width(@img) * @scale;
+              height: image-height(@img) * @scale;
+
+              @scale: 0.4;
+              @img: './img/arrow-0.png';
+            }
+          }
+        }
+      }
+
+      .step1 {
+        background-image: url('./img/step1.jpg');
+        @apply w-full h-full bg-contain pointer-events-auto;
+      }
+
+      .step2 {
+        background-image: url('./img/step2.jpg');
+        @apply w-full h-full bg-contain pointer-events-auto;
+      }
+
+      .step3 {
+        background-image: url('./img/step3.jpg');
+        @apply w-full h-full bg-contain pointer-events-auto;
+      }
+
+      .step4 {
+        background-image: url('./img/step4.jpg');
+        @apply w-full h-full bg-contain pointer-events-auto;
+      }
+
+      .step5 {
+        background-image: url('./img/step5.jpg');
+        @apply w-full h-full bg-contain pointer-events-auto;
+      }
+
+      .step6 {
+        background-image: url('./img/step6.jpg');
+        @apply w-full h-full bg-contain pointer-events-auto;
+      }
+
+      .end {
+        left: -74%;
+        width: calc(~'200% + 74%');
+        background-image: url('./img/end.png');
+        background-size: 60%;
+
+        @apply absolute h-full bg-black z-10 bg-no-repeat bg-center;
+      }
+    }
+  }
+}

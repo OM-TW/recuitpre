@@ -1,0 +1,96 @@
+.Flow {
+  @apply relative w-full h-full;
+
+  & > div {
+    @apply absolute select-none opacity-0 lg:opacity-100 z-10;
+    .context {
+      background-color: rgba(255, 255, 255, 0.5);
+      @apply flex flex-col justify-start items-start p-1 md:p-0 font-bold font-noto-bold space-y-3 md:bg-transparent;
+
+      & > div {
+        @apply whitespace-nowrap;
+      }
+
+      .sup {
+        @apply text-black text-xl;
+      }
+
+      .body {
+        background-color: #f48e8e;
+        @apply p-5 font-bold font-noto-bold text-base lg:text-xl text-black space-y-1;
+      }
+
+      .subtitle {
+        @apply text-xl lg:text-2xl;
+      }
+
+      .title {
+        @apply text-3xl lg:text-5xl text-black;
+      }
+    }
+  }
+
+  .flow0 {
+    right: -171px;
+    bottom: calc(~'100% + 0px');
+
+    @media only screen and (max-width: 768px) {
+      & {
+        right: -212px;
+      }
+    }
+  }
+
+  .flow1 {
+    bottom: calc(~'100% + 0px');
+    left: -50px;
+
+    @media only screen and (max-width: 768px) {
+      & {
+        left: -115px;
+      }
+    }
+  }
+
+  .flow2 {
+    bottom: calc(~'100% + 0px');
+    left: -36px;
+
+    @media only screen and (max-width: 768px) {
+      & {
+        left: -50px;
+      }
+    }
+  }
+
+  .flow3 {
+    bottom: calc(~'100% - 154px');
+    left: 105%;
+
+    @media only screen and (max-width: 768px) {
+      & {
+        left: 102%;
+      }
+    }
+  }
+
+  .flow4 {
+    top: calc(100% - 2px);
+    left: 8px;
+    & > .context {
+      @apply space-y-1;
+    }
+
+    @media only screen and (max-width: 768px) {
+      & {
+        top: 100%;
+        left: 0;
+      }
+    }
+  }
+
+  .flow5 {
+    top: calc(100% + 3px);
+    left: -172px;
+  }
+}

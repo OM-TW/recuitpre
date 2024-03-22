@@ -2,11 +2,12 @@ import Article from '@/components/article';
 import { memo } from 'react';
 import Div100vh from 'react-div-100vh';
 import './index.less';
+import Block from '@/components/block';
 
 const Introduction = memo(() => (
   <Div100vh id='introduction' className='Introduction'>
     <Article>
-      <div className='w-full px-5 lg:px-24 h-full pt-10'>
+      <Block>
         <h3>introduction</h3>
         <div className='w-full text-center pt-8'>
           <h1>什麼是『 奧美新人才來計劃 』？</h1>
@@ -25,7 +26,7 @@ const Introduction = memo(() => (
             在奧美這座遊樂場中找到屬於你/妳的位置！
           </p>
         </div>
-      </div>
+      </Block>
     </Article>
   </Div100vh>
 ));

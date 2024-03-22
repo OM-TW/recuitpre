@@ -6,6 +6,7 @@ import { twMerge } from 'tailwind-merge';
 import Carousel from './carousel';
 import { ValuesCarousels, ValuesContext, ValuesState } from './config';
 import './index.less';
+import Block from '@/components/block';
 
 const Prev = memo(() => {
   const [state, setState] = useContext(ValuesContext);
@@ -60,7 +61,7 @@ const Values = memo(() => {
     <ValuesContext.Provider value={value}>
       <Div100vh id='values' className='Values'>
         <Article>
-          <div className='w-full relative px-5 md:px-12 lg:px-24 h-full pt-10'>
+          <Block>
             <h3>Ogilvy Values</h3>
             <div className='w-full flex flex-row items-baseline'>
               <h1>玩家招募！</h1>
@@ -69,7 +70,7 @@ const Values = memo(() => {
             <div className='w-full pt-8'>
               <Carousel />
             </div>
-          </div>
+          </Block>
           <div className='p-10 absolute bottom-0 w-full flex flex-row justify-between items-center'>
             <Prev />
             <Next />

@@ -4,6 +4,7 @@ import { PositionContext, PositionState } from './config';
 import './index.less';
 import Tablist from './tablist';
 import Dialog from './dialog';
+import Block from '@/components/block';
 
 const Position = memo(() => {
   const value = useState(PositionState);
@@ -13,12 +14,12 @@ const Position = memo(() => {
     <div id='position' className='Position'>
       <PositionContext.Provider value={value}>
         <Article>
-          <div className='w-full relative px-5 md:px-12 lg:px-24 h-full pt-10 pb-10'>
+          <Block>
             <h3>Position</h3>
             <h1>招募職位</h1>
             <Tablist />
             <Dialog />
-          </div>
+          </Block>
         </Article>
       </PositionContext.Provider>
     </div>
