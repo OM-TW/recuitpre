@@ -1,9 +1,11 @@
 .Landing {
+  min-height: 720px;
   @apply w-full relative overflow-hidden;
 
   .symbols {
+    margin-left: -150px;
     max-width: 900px;
-    @apply w-full h-full absolute right-0 flex items-end pl-5 lg:pl-0 pr-5 md:pr-20;
+    @apply w-full h-full absolute flex left-1/2 items-end pl-5 lg:pl-0 pr-5 md:pr-20;
 
     @media only screen and (max-width: 1280px) {
       & {
@@ -13,6 +15,7 @@
 
     @media only screen and (max-width: 768px) {
       & {
+        margin-left: -318px;
         max-width: 640px;
       }
     }
@@ -30,7 +33,7 @@
     }
 
     .headline {
-      bottom: 33%;
+      bottom: 330px;
       left: 0%;
       margin-left: -49%;
       padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @scale);
@@ -46,22 +49,22 @@
 
       @media only screen and (max-width: 1280px) {
         & {
-          bottom: 45%;
-          margin-left: -26%;
+          bottom: 300px;
+          margin-left: -340px;
         }
       }
 
       @media only screen and (max-width: 1024px) {
         & {
-          bottom: 53%;
-          margin-left: 3%;
+          bottom: 400px;
+          margin-left: -200px;
         }
       }
 
       @media only screen and (max-width: 768px) {
         & {
-          bottom: 50%;
-          margin-left: 12%;
+          bottom: 510px;
+          margin-left: 77px;
           padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @scale);
           width: @scale;
 

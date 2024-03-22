@@ -2,7 +2,7 @@
   @apply fixed right-0 top-0 select-none;
 
   .burger {
-    @apply w-20 h-20 border-2 border-black relative flex justify-center flex-col px-5 cursor-pointer duration-200;
+    @apply w-20 h-20 border-2 border-black relative flex justify-center flex-col px-5 cursor-pointer duration-200 bg-backgroundColor;
 
     & > div {
       margin: 7px 0;
@@ -15,7 +15,7 @@
     }
 
     &:hover {
-      @apply bg-black border-white;
+      @apply bg-black;
 
       & > div {
         @apply bg-white;
@@ -47,7 +47,7 @@
     }
 
     &:hover {
-      @apply bg-white border-black;
+      @apply bg-white;
 
       & > div {
         @apply bg-black;
