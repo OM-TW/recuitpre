@@ -1,1 +1,0 @@
-import{r as s,j as r}from"./index-CotUXGPU.js";const l=s.memo(({children:e})=>(s.useEffect(()=>{},[]),r.jsx("div",{className:"Block w-full px-5 md:px-12 lg:px-24 h-full py-10 relative",children:e})));export{l as B};
