@@ -12,7 +12,7 @@ const Position = memo(() => {
   useEffect(() => {}, []);
   return (
     <div className='section'>
-      <div id='position' className='Position'>
+      <div className='Position'>
         <PositionContext.Provider value={value}>
           <Article>
             <Block>

@@ -9,7 +9,7 @@ const Process = memo(() => {
   const value = useState(ProcessState);
   return (
     <div className='section'>
-      <div id='process' className='Process'>
+      <div className='Process'>
         <ProcessContext.Provider value={value}>
           <Article>
             <Block>

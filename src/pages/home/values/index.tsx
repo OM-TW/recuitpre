@@ -60,7 +60,7 @@ const Values = memo(() => {
   return (
     <div className='section'>
       <ValuesContext.Provider value={value}>
-        <Div100vh id='values' className='Values'>
+        <Div100vh className='Values'>
           <Article>
             <Block>
               <h3>Ogilvy Values</h3>

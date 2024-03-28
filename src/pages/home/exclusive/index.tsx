@@ -7,7 +7,7 @@ import './index.less';
 
 const Exclusive = memo(() => (
   <div className='section'>
-    <div id='exclusive' className='Exclusive'>
+    <div className='Exclusive'>
       <Article>
         <Block>
           <h3>Exclusive Pack</h3>

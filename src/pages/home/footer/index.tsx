@@ -42,7 +42,7 @@ const Footer = memo(() => {
   const [, setContext] = useContext(Context);
   return (
     <div className='section'>
-      <Div100vh id='footer' className='Footer'>
+      <Div100vh className='Footer'>
         <Article>
           <div className='w-full h-full flex flex-col justify-start items-center'>
             <div className='w-full flex-1 flex justify-center items-center flex-col'>

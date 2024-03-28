@@ -6,7 +6,7 @@ import Block from '@/components/block';
 
 const Introduction = memo(() => (
   <div className='section'>
-    <Div100vh id='introduction' className='Introduction'>
+    <Div100vh className='Introduction'>
       <Article>
         <Block>
           <h3>introduction</h3>

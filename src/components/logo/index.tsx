@@ -11,9 +11,7 @@ const Logo = memo(() => {
   const [hash, setHash] = useState(window.location.hash);
 
   useEffect(() => {
-    window.addEventListener('hashchange', () => {
-      setHash(window.location.hash);
-    });
+    window.addEventListener('hashchange', () => setHash(window.location.hash));
   }, []);
 
   const state = useMemo(() => {

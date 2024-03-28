@@ -6,7 +6,7 @@ const Landing = memo(() => {
   useEffect(() => {}, []);
   return (
     <div className='section'>
-      <Div100vh id='home' className='Landing'>
+      <Div100vh className='Landing'>
         <div className='symbols'>
           <div className='headline' />
         </div>

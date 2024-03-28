@@ -14,8 +14,7 @@ import Position from './position';
 import Process from './process';
 import Exclusive from './exclusive';
 import Footer from './footer';
-
-const hash = window.location.hash;
+import { hash } from '@/common';
 
 const Home = memo(() => {
   const [, setContext] = useContext(Context);
@@ -26,10 +25,7 @@ const Home = memo(() => {
   useEffect(() => {
     if (step === HomeStepType.fontLoaded) {
       window.location.hash = '';
-      setTimeout(() => {
-        window.location.hash = hash;
-        setContext({ type: ActionType.LoadingProcess, state: { enabled: false } });
-      }, 400);
+      setContext({ type: ActionType.LoadingProcess, state: { enabled: false } });
       // getData();
     } else window.location.hash = '';
   }, [step]);
@@ -48,7 +44,12 @@ const Home = memo(() => {
           <ReactFullpage
             //fullpage options
             licenseKey={'YOUR_KEY_HERE'}
+            navigation={true}
             scrollingSpeed={1000}
+            onLeave={(_, destination) => {
+              const currentHash = hash[destination.index];
+              window.location.hash = currentHash;
+            }}
             credits={{ enabled: false, label: '', position: 'right' }}
             render={() => {
               return (
