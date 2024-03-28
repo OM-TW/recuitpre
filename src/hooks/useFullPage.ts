@@ -1,5 +1,5 @@
 import { getDelta, getScroll, hash } from '@/common';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 let supportsPassive = false;
 try {
@@ -23,12 +23,12 @@ export type TFullPageProperty = { delta: number; enabled: boolean; index: number
 let timeout: NodeJS.Timeout;
 
 const useFullPage = () => {
-  const [state, setState] = useState();
   const property = useRef<TFullPageProperty>({
     delta: 0,
-    enabled: true,
+    enabled: false,
     index: hash.indexOf(window.location.hash.replace('#', '') || 'home'),
   });
+
   const onDeltaTrigger = useCallback((e: TouchEvent | WheelEvent | KeyboardEvent | Event) => {
     if (!property.current.enabled) {
       e.preventDefault();
@@ -73,6 +73,11 @@ const useFullPage = () => {
 
     window.addEventListener('keydown', onDeltaTrigger, false);
   }, []);
-  return [state, setState];
+
+  const start = useCallback(() => {
+    property.current.enabled = true;
+  }, []);
+
+  return [start];
 };
 export default useFullPage;

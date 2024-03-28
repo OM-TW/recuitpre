@@ -13,7 +13,7 @@ const hash = window.location.hash;
 
 const Home = memo(() => {
   const [, setContext] = useContext(Context);
-  useFullPage();
+  const [addEvents] = useFullPage();
 
   const [state, setState] = useState<THomeState>(HomeState);
   const { step } = state;
@@ -36,6 +36,8 @@ const Home = memo(() => {
       window.location.hash = '';
       setTimeout(() => {
         window.location.hash = hash;
+        setContext({ type: ActionType.LoadingProcess, state: { enabled: false } });
+        addEvents();
       }, 400);
       // getData();
     } else window.location.hash = '';
@@ -45,7 +47,6 @@ const Home = memo(() => {
     <OnloadProvider
       onload={() => {
         setState((S) => ({ ...S, step: HomeStepType.loaded }));
-        setContext({ type: ActionType.LoadingProcess, state: { enabled: false } });
         document.fonts.ready.then(() => {
           setState((S) => ({ ...S, step: HomeStepType.fontLoaded }));
         });
