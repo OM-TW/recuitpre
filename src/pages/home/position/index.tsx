@@ -11,17 +11,19 @@ const Position = memo(() => {
 
   useEffect(() => {}, []);
   return (
-    <div id='position' className='Position'>
-      <PositionContext.Provider value={value}>
-        <Article>
-          <Block>
-            <h3>Position</h3>
-            <h1>招募職位</h1>
-            <Tablist />
-            <Dialog />
-          </Block>
-        </Article>
-      </PositionContext.Provider>
+    <div className='section'>
+      <div id='position' className='Position'>
+        <PositionContext.Provider value={value}>
+          <Article>
+            <Block>
+              <h3>Position</h3>
+              <h1>招募職位</h1>
+              <Tablist />
+              <Dialog />
+            </Block>
+          </Article>
+        </PositionContext.Provider>
+      </div>
     </div>
   );
 });

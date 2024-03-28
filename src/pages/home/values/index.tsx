@@ -58,26 +58,28 @@ const Values = memo(() => {
   const value = useState(ValuesState);
 
   return (
-    <ValuesContext.Provider value={value}>
-      <Div100vh id='values' className='Values'>
-        <Article>
-          <Block>
-            <h3>Ogilvy Values</h3>
-            <div className='w-full flex flex-row items-baseline'>
-              <h1>玩家招募！</h1>
-              <span>帶有奧美DNA的五大珍奇異獸</span>
+    <div className='section'>
+      <ValuesContext.Provider value={value}>
+        <Div100vh id='values' className='Values'>
+          <Article>
+            <Block>
+              <h3>Ogilvy Values</h3>
+              <div className='w-full flex flex-row items-baseline'>
+                <h1>玩家招募！</h1>
+                <span>帶有奧美DNA的五大珍奇異獸</span>
+              </div>
+              <div className='w-full pt-8'>
+                <Carousel />
+              </div>
+            </Block>
+            <div className='p-10 absolute bottom-0 w-full flex flex-row justify-between items-center'>
+              <Prev />
+              <Next />
             </div>
-            <div className='w-full pt-8'>
-              <Carousel />
-            </div>
-          </Block>
-          <div className='p-10 absolute bottom-0 w-full flex flex-row justify-between items-center'>
-            <Prev />
-            <Next />
-          </div>
-        </Article>
-      </Div100vh>
-    </ValuesContext.Provider>
+          </Article>
+        </Div100vh>
+      </ValuesContext.Provider>
+    </div>
   );
 });
 export default Values;

@@ -1,35 +1,27 @@
 import Logo from '@/components/logo';
 import Menu from '@/components/menu';
-import useFullPage from '@/hooks/useFullPage';
 import { Context } from '@/settings/constant';
 import { ActionType } from '@/settings/type';
+import ReactFullpage from '@fullpage/react-fullpage';
 import OnloadProvider from 'lesca-react-onload';
-import { Suspense, lazy, memo, useContext, useEffect, useMemo, useState } from 'react';
-import { HomeContext, HomePages, HomeState, HomeStepType, THomeState } from './config';
+import { memo, useContext, useEffect, useState } from 'react';
+import { HomeContext, HomeState, HomeStepType, THomeState } from './config';
 import './index.less';
+import Introduction from './introduction';
 import Landing from './landing';
+import Values from './values';
+import Position from './position';
+import Process from './process';
+import Exclusive from './exclusive';
+import Footer from './footer';
 
 const hash = window.location.hash;
 
 const Home = memo(() => {
   const [, setContext] = useContext(Context);
-  const [addEvents] = useFullPage();
 
   const [state, setState] = useState<THomeState>(HomeState);
   const { step } = state;
-
-  const pages = useMemo(() => {
-    if (step !== HomeStepType.unset) {
-      return HomePages.filter((_, index) => index !== 0).map((data) => {
-        const Element = lazy(() => import(`./${data.page}/index.tsx`));
-        return (
-          <Suspense fallback='' key={JSON.stringify(data)}>
-            <Element />
-          </Suspense>
-        );
-      });
-    } else return null;
-  }, [step]);
 
   useEffect(() => {
     if (step === HomeStepType.fontLoaded) {
@@ -37,7 +29,6 @@ const Home = memo(() => {
       setTimeout(() => {
         window.location.hash = hash;
         setContext({ type: ActionType.LoadingProcess, state: { enabled: false } });
-        addEvents();
       }, 400);
       // getData();
     } else window.location.hash = '';
@@ -54,8 +45,25 @@ const Home = memo(() => {
     >
       <div className='Home'>
         <HomeContext.Provider value={[state, setState]}>
-          <Landing />
-          {(step !== HomeStepType.unset && pages) || null}
+          <ReactFullpage
+            //fullpage options
+            licenseKey={'YOUR_KEY_HERE'}
+            scrollingSpeed={1000}
+            credits={{ enabled: false, label: '', position: 'right' }}
+            render={() => {
+              return (
+                <ReactFullpage.Wrapper>
+                  <Landing />
+                  <Introduction />
+                  <Values />
+                  <Position />
+                  <Process />
+                  <Exclusive />
+                  <Footer />
+                </ReactFullpage.Wrapper>
+              );
+            }}
+          />
           <Logo />
           <Menu />
         </HomeContext.Provider>

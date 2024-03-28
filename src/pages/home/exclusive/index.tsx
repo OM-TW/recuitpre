@@ -1,13 +1,12 @@
 import Article from '@/components/article';
-import { memo, useEffect } from 'react';
+import Block from '@/components/block';
+import { memo } from 'react';
 import Box from './box';
 import { ExclusivePacks } from './config';
 import './index.less';
-import Block from '@/components/block';
 
-const Exclusive = memo(() => {
-  useEffect(() => {}, []);
-  return (
+const Exclusive = memo(() => (
+  <div className='section'>
     <div id='exclusive' className='Exclusive'>
       <Article>
         <Block>
@@ -21,6 +20,6 @@ const Exclusive = memo(() => {
         </Block>
       </Article>
     </div>
-  );
-});
+  </div>
+));
 export default Exclusive;

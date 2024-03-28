@@ -41,29 +41,31 @@ const Info = memo(() => {
 const Footer = memo(() => {
   const [, setContext] = useContext(Context);
   return (
-    <Div100vh id='footer' className='Footer'>
-      <Article>
-        <div className='w-full h-full flex flex-col justify-start items-center'>
-          <div className='w-full flex-1 flex justify-center items-center flex-col'>
-            <h1>來吧，這場遊戲，你一定贏！</h1>
-            <Button
-              className='register'
-              onClick={() => {
-                setContext({ type: ActionType.Alert, state: { enabled: true } });
-              }}
-            >
-              <div className='texts'>
-                <span>立即報名</span>
-                <span>REGISTER</span>
-              </div>
-              <div className='arrow'></div>
-              <div className='symbols'></div>
-            </Button>
+    <div className='section'>
+      <Div100vh id='footer' className='Footer'>
+        <Article>
+          <div className='w-full h-full flex flex-col justify-start items-center'>
+            <div className='w-full flex-1 flex justify-center items-center flex-col'>
+              <h1>來吧，這場遊戲，你一定贏！</h1>
+              <Button
+                className='register'
+                onClick={() => {
+                  setContext({ type: ActionType.Alert, state: { enabled: true } });
+                }}
+              >
+                <div className='texts'>
+                  <span>立即報名</span>
+                  <span>REGISTER</span>
+                </div>
+                <div className='arrow'></div>
+                <div className='symbols'></div>
+              </Button>
+            </div>
+            <Info />
           </div>
-          <Info />
-        </div>
-      </Article>
-    </Div100vh>
+        </Article>
+      </Div100vh>
+    </div>
   );
 });
 export default Footer;

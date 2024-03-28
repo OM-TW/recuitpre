@@ -48,6 +48,8 @@ const useFullPage = () => {
         } else e.preventDefault();
       } else {
         timeout = setTimeout(() => {
+          console.log(top, innerHeight, height);
+
           if (top > 0) {
             const delta = getDelta(e, property.current);
             getScroll(delta, e, property.current);
