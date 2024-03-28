@@ -8,7 +8,7 @@ import './index.less';
 const Process = memo(() => {
   const value = useState(ProcessState);
   return (
-    <div className='Process'>
+    <div id='process' className='Process'>
       <ProcessContext.Provider value={value}>
         <Article>
           <Block>

@@ -1,4 +1,6 @@
 import Logo from '@/components/logo';
+import Menu from '@/components/menu';
+import useFullPage from '@/hooks/useFullPage';
 import { Context } from '@/settings/constant';
 import { ActionType } from '@/settings/type';
 import OnloadProvider from 'lesca-react-onload';
@@ -6,12 +8,12 @@ import { Suspense, lazy, memo, useContext, useEffect, useMemo, useState } from '
 import { HomeContext, HomePages, HomeState, HomeStepType, THomeState } from './config';
 import './index.less';
 import Landing from './landing';
-import Menu from '@/components/menu';
 
 const hash = window.location.hash;
 
 const Home = memo(() => {
   const [, setContext] = useContext(Context);
+  useFullPage();
 
   const [state, setState] = useState<THomeState>(HomeState);
   const { step } = state;
@@ -20,7 +22,6 @@ const Home = memo(() => {
     if (step !== HomeStepType.unset) {
       return HomePages.filter((_, index) => index !== 0).map((data) => {
         const Element = lazy(() => import(`./${data.page}/index.tsx`));
-
         return (
           <Suspense fallback='' key={JSON.stringify(data)}>
             <Element />

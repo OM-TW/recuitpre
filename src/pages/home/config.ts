@@ -5,8 +5,8 @@ export const HomePages = [
   { page: 'introduction', name: '計畫介紹' },
   { page: 'values', name: '五大珍奇異獸​' },
   { page: 'position', name: '招募職位' },
-  { page: 'exclusive', name: '新人才來專屬' },
   { page: 'process', name: '申請流程' },
+  { page: 'exclusive', name: '新人才來專屬' },
   { page: 'footer', name: '尾頁' },
 ];
 
