@@ -15,6 +15,7 @@ import Process from './process';
 import Exclusive from './exclusive';
 import Footer from './footer';
 import { hash } from '@/common';
+import { MENU_ITEMS } from '@/settings/config';
 
 declare global {
   interface Window {
@@ -30,10 +31,10 @@ const Home = memo(() => {
 
   useEffect(() => {
     if (step === HomeStepType.fontLoaded) {
-      window.location.hash = '';
+      //window.location.hash = '';
       setContext({ type: ActionType.LoadingProcess, state: { enabled: false } });
       // getData();
-    } else window.location.hash = '';
+    }
   }, [step]);
 
   return (
@@ -50,6 +51,10 @@ const Home = memo(() => {
           <ReactFullpage
             afterRender={() => {
               setContext({ type: ActionType.Api, state: window.fullpage_api });
+              const index = MENU_ITEMS.findIndex(
+                (item) => item.hash === window.location.hash.slice(1),
+              );
+              window.fullpage_api.moveTo(index + 2);
             }}
             licenseKey={'YOUR_KEY_HERE'}
             navigation={true}

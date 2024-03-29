@@ -37,7 +37,7 @@ const Flow = memo(({ data, index }: T) => {
         onClick={() => setState((S) => ({ ...S, index }))}
       ></Button>
       <div className={`flow${index}`} style={{ opacity }}>
-        <div className='context'>
+        <div className='context pointer-events-none'>
           {data.sup && <div className='sup'>{data.sup}</div>}
           <div className='title'>{data.title}</div>
           <div className='subtitle'>{data.subtitle}</div>
