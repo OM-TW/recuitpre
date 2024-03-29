@@ -30,6 +30,7 @@ export const InitialState: IState = {
   [ActionType.LoadingProcess]: LoadingProcessState,
   [ActionType.Menu]: MenuState,
   [ActionType.Alert]: AlertState,
+  [ActionType.Api]: null,
 };
 
 export const Context = createContext<TContext>([InitialState, () => {}]);

@@ -1,10 +1,12 @@
 import { Dispatch, ReactNode } from 'react';
+import { fullpageApi } from '@fullpage/react-fullpage';
 
 export enum ActionType {
   Page = 'page',
   LoadingProcess = 'loadingProcess',
   Menu = 'menu',
   Alert = 'alert',
+  Api = 'api',
 }
 
 export enum LoadingProcessType {
@@ -28,6 +30,8 @@ export enum TransitionType {
   Stop = 6,
 }
 
+export type TFullPageAPI = fullpageApi | null;
+
 export type TLoadingProcessState = {
   enabled: boolean;
   type: LoadingProcessType;
@@ -47,11 +51,17 @@ export interface IState {
   loadingProcess?: TLoadingProcessState;
   menu?: TMenuState;
   alert?: TAlert;
+  api?: TFullPageAPI;
 }
 
 export interface IAction {
   type: ActionType;
-  state: IState | Partial<TLoadingProcessState> | Partial<TMenuState> | Partial<TAlert>;
+  state:
+    | IState
+    | Partial<TLoadingProcessState>
+    | Partial<TMenuState>
+    | Partial<TAlert>
+    | Partial<TFullPageAPI>;
 }
 
 export type TContext = [IState, Dispatch<IAction>];

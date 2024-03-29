@@ -12,12 +12,17 @@ type T = {
 };
 
 const Item = memo(({ data }: { data: (typeof MENU_ITEMS)[number] }) => {
-  const [, setContext] = useContext(Context);
+  const [context, setContext] = useContext(Context);
+  const api = context[ActionType.Api];
+  const index = MENU_ITEMS.findIndex((item) => item.hash === data.hash);
+
   return (
     <Button
       className='menuRegular'
       onClick={() => {
         window.location.hash = data.hash;
+        api?.moveTo(index + 2);
+
         setContext({ type: ActionType.Menu, state: { enabled: false } });
       }}
     >
@@ -47,8 +52,8 @@ const Drawer = memo(({ enabled }: T) => {
                   className='w-full lg:w-1/2 space-y-5 flex flex-col justify-start items-start'
                   key={index}
                 >
-                  {items.map((item, index) => (
-                    <Item key={index} data={item} />
+                  {items.map((item, index2) => (
+                    <Item key={index2} data={item} />
                   ))}
                 </div>
               ))}

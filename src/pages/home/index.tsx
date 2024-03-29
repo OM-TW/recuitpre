@@ -16,6 +16,12 @@ import Exclusive from './exclusive';
 import Footer from './footer';
 import { hash } from '@/common';
 
+declare global {
+  interface Window {
+    fullpage_api: any;
+  }
+}
+
 const Home = memo(() => {
   const [, setContext] = useContext(Context);
 
@@ -42,7 +48,9 @@ const Home = memo(() => {
       <div className='Home'>
         <HomeContext.Provider value={[state, setState]}>
           <ReactFullpage
-            //fullpage options
+            afterRender={() => {
+              setContext({ type: ActionType.Api, state: window.fullpage_api });
+            }}
             licenseKey={'YOUR_KEY_HERE'}
             navigation={true}
             scrollingSpeed={1000}
@@ -51,19 +59,17 @@ const Home = memo(() => {
               window.location.hash = currentHash;
             }}
             credits={{ enabled: false, label: '', position: 'right' }}
-            render={() => {
-              return (
-                <ReactFullpage.Wrapper>
-                  <Landing />
-                  <Introduction />
-                  <Values />
-                  <Position />
-                  <Process />
-                  <Exclusive />
-                  <Footer />
-                </ReactFullpage.Wrapper>
-              );
-            }}
+            render={() => (
+              <ReactFullpage.Wrapper>
+                <Landing />
+                <Introduction />
+                <Values />
+                <Position />
+                <Process />
+                <Exclusive />
+                <Footer />
+              </ReactFullpage.Wrapper>
+            )}
           />
           <Logo />
           <Menu />
