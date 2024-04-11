@@ -8,6 +8,9 @@ import Div100vh from 'react-div-100vh';
 import './index.less';
 
 const Info = memo(() => {
+  const [context] = useContext(Context);
+  const api = context[ActionType.Api];
+
   return (
     <div className='w-full h-52 bg-black flex justify-center relative'>
       <div className='max-w-[500px] lg:max-w-[768px] w-full h-full flex flex-col justify-center items-center space-y-3'>
@@ -29,7 +32,7 @@ const Info = memo(() => {
       <Button
         className='scrollTopButton'
         onClick={() => {
-          window.scrollTo(0, 0);
+          api?.moveTo(1);
         }}
       >
         <div />

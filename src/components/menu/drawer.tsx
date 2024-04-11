@@ -22,7 +22,6 @@ const Item = memo(({ data }: { data: (typeof MENU_ITEMS)[number] }) => {
       onClick={() => {
         window.location.hash = data.hash;
         api?.moveTo(index + 2);
-
         setContext({ type: ActionType.Menu, state: { enabled: false } });
       }}
     >
