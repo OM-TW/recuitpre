@@ -1,9 +1,9 @@
 .Grid {
-  @apply w-full p-5 lg:p-12 mt-36;
+  @apply w-full p-5 lg:p-12 mt-0 lg:mt-36 relative;
 
   .content {
     gap: 1px;
-    @apply grid grid-cols-12 pb-36;
+    @apply grid grid-cols-12 pb-36 fixed lg:relative w-full;
 
     & > div {
       padding-bottom: 100%;
@@ -75,6 +75,11 @@
 
       .step6 {
         background-image: url('./img/step6.jpg');
+        @apply w-full h-full bg-contain pointer-events-auto;
+      }
+
+      .step7 {
+        background-image: url('./img/step7.jpg');
         @apply w-full h-full bg-contain pointer-events-auto;
       }
 

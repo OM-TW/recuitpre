@@ -1,7 +1,8 @@
 import { memo, useEffect } from 'react';
-import './grid.less';
-import { ProcessRoadMap, ProcessRoadMapProperty } from './config';
 import { twMerge } from 'tailwind-merge';
+import { FlowData, ProcessRoadMap, ProcessRoadMapProperty } from './config';
+import { MobileFlow } from './flow';
+import './grid.less';
 
 const row = 12;
 const column = 14;
@@ -22,6 +23,13 @@ const Grid = memo(() => {
             </div>
           );
         })}
+      </div>
+      <div className='relative w-full h-full top-0 left-0 z-20 flex flex-col lg:hidden'>
+        {FlowData.map((item, index) => (
+          <div key={JSON.stringify(item)} className='w-full px-0 md:px-7 lg:px-24 py-2 relative'>
+            <MobileFlow data={item} index={index} />
+          </div>
+        ))}
       </div>
     </div>
   );

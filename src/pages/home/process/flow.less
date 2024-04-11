@@ -2,10 +2,10 @@
   @apply relative w-full h-full;
 
   & > div {
-    @apply absolute select-none opacity-0 lg:opacity-100 z-10;
+    @apply absolute select-none hidden lg:block;
     .context {
       background-color: rgba(255, 255, 255, 0.5);
-      @apply flex flex-col justify-start items-start p-1 md:p-0 font-bold font-noto-bold space-y-3 md:bg-transparent;
+      @apply flex flex-col justify-start items-start p-1 md:p-0 font-bold font-noto-bold space-y-1 md:bg-transparent;
 
       & > div {
         @apply whitespace-nowrap;
@@ -17,7 +17,7 @@
 
       .body {
         background-color: #f48e8e;
-        @apply p-5 font-bold font-noto-bold text-base lg:text-xl text-black space-y-1;
+        @apply relative px-5 py-3 font-bold font-noto-bold text-base lg:text-lg text-black space-y-1;
       }
 
       .subtitle {
@@ -25,7 +25,92 @@
       }
 
       .title {
-        @apply text-3xl lg:text-5xl text-black;
+        @apply text-3xl lg:text-4xl text-black;
+      }
+
+      .symbols-0 {
+        &::before {
+          position: absolute;
+          top: -30px;
+          right: -18px;
+          z-index: 10;
+          width: image-width(@img) * @scale;
+          height: image-height(@img) * @scale;
+          background-image: url(@img);
+          background-size: 100%;
+          content: '';
+
+          @scale: 0.5;
+          @img: './img/symbols-0.png';
+        }
+      }
+
+      .symbols-1 {
+        &::before {
+          position: absolute;
+          top: -10px;
+          left: -50px;
+          z-index: 10;
+          width: image-width(@img) * @scale;
+          height: image-height(@img) * @scale;
+          background-image: url(@img);
+          background-size: 100%;
+          content: '';
+
+          @scale: 0.5;
+          @img: './img/symbols-1.png';
+        }
+      }
+
+      .symbols-2 {
+        &::before {
+          position: absolute;
+          top: -25px;
+          right: -98px;
+          z-index: 10;
+          width: image-width(@img) * @scale;
+          height: image-height(@img) * @scale;
+          background-image: url(@img);
+          background-size: 100%;
+          content: '';
+
+          @scale: 0.5;
+          @img: './img/symbols-2.png';
+        }
+      }
+
+      .symbols-4 {
+        &::before {
+          position: absolute;
+          top: -24px;
+          left: -56px;
+          z-index: 10;
+          width: image-width(@img) * @scale;
+          height: image-height(@img) * @scale;
+          background-image: url(@img);
+          background-size: 100%;
+          content: '';
+
+          @scale: 0.5;
+          @img: './img/symbols-3.png';
+        }
+      }
+
+      .symbols-5 {
+        &::before {
+          position: absolute;
+          top: -1px;
+          right: -38px;
+          z-index: 10;
+          width: image-width(@img) * @scale;
+          height: image-height(@img) * @scale;
+          background-image: url(@img);
+          background-size: 100%;
+          content: '';
+
+          @scale: 0.5;
+          @img: './img/symbols-4.png';
+        }
       }
     }
   }
@@ -42,8 +127,8 @@
   }
 
   .flow1 {
-    bottom: calc(~'100% + 0px');
-    left: -50px;
+    bottom: 100%;
+    left: 0;
 
     @media only screen and (max-width: 768px) {
       & {
@@ -53,7 +138,7 @@
   }
 
   .flow2 {
-    bottom: calc(~'100% + 0px');
+    bottom: 100%;
     left: -36px;
 
     @media only screen and (max-width: 768px) {
@@ -64,8 +149,8 @@
   }
 
   .flow3 {
-    bottom: calc(~'100% - 154px');
-    left: 105%;
+    bottom: 100%;
+    left: 0;
 
     @media only screen and (max-width: 768px) {
       & {
@@ -75,8 +160,8 @@
   }
 
   .flow4 {
-    top: calc(100% - 2px);
-    left: 8px;
+    bottom: -100%;
+    left: calc(~'100% + 45px');
     & > .context {
       @apply space-y-1;
     }
@@ -90,7 +175,131 @@
   }
 
   .flow5 {
-    top: calc(100% + 3px);
-    left: -172px;
+    bottom: -200%;
+    left: calc(~'0% - 45px');
+  }
+
+  .flow6 {
+    top: calc(~'100% + 20px');
+    left: -200%;
+  }
+
+  .symbols-0 {
+  }
+}
+
+.MobileFlow {
+  background-color: rgba(255, 255, 255, 0.8);
+  @apply w-full p-5;
+  @apply flex flex-col justify-start items-start font-bold font-noto-bold space-y-1;
+
+  & > div {
+    // @apply whitespace-nowrap;
+  }
+
+  h2 {
+    @apply text-3xl font-bold font-noto-bold text-backgroundColor bg-black w-min p-2;
+  }
+
+  .title {
+    @apply text-3xl lg:text-4xl text-black;
+  }
+
+  .subtitle {
+    @apply text-xl lg:text-2xl;
+  }
+
+  .sup {
+    @apply text-black text-xl;
+  }
+
+  .body {
+    background-color: #f48e8e;
+    @apply px-5 py-3 font-bold font-noto-bold text-base lg:text-lg text-black space-y-1 relative;
+  }
+
+  .symbols-0 {
+    &::before {
+      position: absolute;
+      top: -30px;
+      right: -18px;
+      z-index: 10;
+      width: image-width(@img) * @scale;
+      height: image-height(@img) * @scale;
+      background-image: url(@img);
+      background-size: 100%;
+      content: '';
+
+      @scale: 0.5;
+      @img: './img/symbols-0.png';
+    }
+  }
+
+  .symbols-1 {
+    &::before {
+      position: absolute;
+      top: -10px;
+      left: -50px;
+      z-index: 10;
+      width: image-width(@img) * @scale;
+      height: image-height(@img) * @scale;
+      background-image: url(@img);
+      background-size: 100%;
+      content: '';
+
+      @scale: 0.5;
+      @img: './img/symbols-1.png';
+    }
+  }
+
+  .symbols-2 {
+    &::before {
+      position: absolute;
+      top: -25px;
+      right: -98px;
+      z-index: 10;
+      width: image-width(@img) * @scale;
+      height: image-height(@img) * @scale;
+      background-image: url(@img);
+      background-size: 100%;
+      content: '';
+
+      @scale: 0.5;
+      @img: './img/symbols-2.png';
+    }
+  }
+
+  .symbols-4 {
+    &::before {
+      position: absolute;
+      top: -24px;
+      left: -56px;
+      z-index: 10;
+      width: image-width(@img) * @scale;
+      height: image-height(@img) * @scale;
+      background-image: url(@img);
+      background-size: 100%;
+      content: '';
+
+      @scale: 0.5;
+      @img: './img/symbols-3.png';
+    }
+  }
+
+  .symbols-5 {
+    &::before {
+      position: absolute;
+      top: -1px;
+      right: -38px;
+      z-index: 10;
+      width: image-width(@img) * @scale;
+      height: image-height(@img) * @scale;
+      background-image: url(@img);
+      background-size: 100%;
+      content: '';
+
+      @scale: 0.5;
+      @img: './img/symbols-4.png';
+    }
   }
 }
