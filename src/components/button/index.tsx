@@ -6,6 +6,7 @@ import MenuRegular from './menuRegular';
 import Position from './position';
 import OutlineWithArrow from './outlineWifthArrow';
 import Close from './close';
+import News from './news';
 
 type T = IReactProps & {
   onClick?: () => void;
@@ -28,5 +29,6 @@ Button.MenuRegular = MenuRegular;
 Button.Position = Position;
 Button.OutlineWithArrow = OutlineWithArrow;
 Button.Close = Close;
+Button.News = News;
 
 export default Button;

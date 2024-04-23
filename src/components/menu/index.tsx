@@ -12,7 +12,10 @@ const Menu = memo(() => {
   return (
     <div className='Menu'>
       <Drawer enabled={context[ActionType.Menu]?.enabled} />
-      <div className='absolute top-8 right-8 flex flex-row space-x-5'>
+      <div className='absolute right-8 top-8 flex flex-row space-x-5'>
+        <Button onClick={() => setContext({ type: ActionType.News, state: { enabled: true } })}>
+          <Button.News />
+        </Button>
         <Button onClick={() => setContext({ type: ActionType.Alert, state: { enabled: true } })}>
           <Button.MenuRegister revert={context[ActionType.Menu]?.enabled} />
         </Button>
