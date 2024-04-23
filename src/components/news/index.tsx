@@ -20,8 +20,10 @@ const Dialog = memo(({ html, transition }: { html: string; transition: Transitio
 });
 
 const News = memo(() => {
-  const [, setContext] = useContext(Context);
+  const [context, setContext] = useContext(Context);
   const [transition, setTransition] = useState(TransitionType.Unset);
+
+  const api = context[ActionType.Api];
 
   const [respond] = useInit();
   const data = respond?.data[0];
@@ -31,6 +33,17 @@ const News = memo(() => {
     setTransition(TransitionType.FadeIn);
     return data.html;
   }, [data]);
+
+  useEffect(() => {
+    const hashchange = () => {
+      if (window.location.hash === '#process') {
+        setContext({ type: ActionType.News, state: { enabled: false } });
+        api?.moveTo(5);
+      }
+    };
+    window.addEventListener('hashchange', hashchange);
+    return () => window.removeEventListener('hashchange', hashchange);
+  }, []);
 
   return (
     <div className='News'>
