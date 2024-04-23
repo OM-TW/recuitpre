@@ -1,71 +1,95 @@
 .News {
-  @apply fixed left-0 top-0 z-20 flex h-full w-full select-text items-center justify-center;
+  background-color: rgba(0, 0, 0, 0.8);
+  @apply fixed left-0 top-0 flex h-full w-full items-center justify-center;
 
-  & > div:nth-child(1) {
-    content: '';
-    @apply fixed h-full w-full bg-black bg-opacity-90;
+  .close {
+    @apply relative h-16 w-16 border border-white;
+
+    &::before,
+    &::after {
+      margin-left: 70% * -0.5;
+      width: 70%;
+      height: 2px;
+      content: '';
+
+      @apply absolute left-1/2 top-1/2 bg-white;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
   }
 
-  .ctx {
-    max-height: 100%;
-    @apply w-full lg:w-10/12;
+  .dialog {
+    max-width: 1280px;
+    width: 90vw;
 
-    .dialog {
-      max-height: 100%;
-      @apply relative w-full bg-white text-center;
+    @apply flex flex-col space-y-2 bg-white px-5 py-12;
 
-      .content {
-        min-height: 300px;
-        max-height: 100vh;
-        @apply w-full space-y-5 overflow-y-scroll py-20;
+    h1 {
+      @apply w-full text-center font-noto-bold text-2xl font-bold;
+    }
 
-        h1 {
-          @apply font-noto-medium text-2xl;
-        }
+    h2 {
+      @apply font-noto-medium text-xl;
+    }
 
-        h2 {
-          @apply font-noto-medium text-xl;
-        }
+    h3 {
+      @apply font-noto-medium text-lg;
+    }
 
-        h3 {
-          @apply font-noto-medium text-lg;
-        }
+    h4 {
+      @apply font-noto-medium text-base;
+    }
 
-        h4 {
-          @apply font-noto-medium text-base;
-        }
+    h5 {
+      @apply font-noto-medium text-sm;
+    }
 
-        h5 {
-          @apply font-noto-medium text-sm;
-        }
+    h6 {
+      @apply font-noto-medium text-xs;
+    }
 
-        h6 {
-          @apply font-noto-medium text-xs;
-        }
+    strong {
+      @apply font-noto-bold;
+    }
 
-        strong {
-          @apply font-noto-bold;
-        }
+    p {
+      @apply text-center font-noto-medium text-lg leading-loose;
+    }
 
-        p {
-          @apply text-center font-noto-medium leading-loose;
-        }
+    a {
+      @apply text-OM-red-300;
+    }
 
-        a {
-          @apply text-OM-red-300;
-        }
+    a:hover {
+      @apply text-OM-red-200;
+    }
 
-        a:hover {
-          @apply text-OM-red-200;
-        }
+    img {
+      max-width: 100%;
+    }
 
-        img {
-          max-width: 100%;
-        }
+    .btn {
+      @apply flex w-1/2 flex-col items-center justify-center space-y-2 border border-black py-5;
+
+      & > span:nth-child(1) {
+        @apply font-noto-bold text-3xl font-bold;
       }
+      & > span:nth-child(2) {
+        @apply text-lg;
+      }
+    }
 
-      .close {
-        @apply absolute right-0 top-0;
+    .active {
+      @apply border-backgroundColor;
+
+      & > span {
+        @apply text-backgroundColor;
       }
     }
   }

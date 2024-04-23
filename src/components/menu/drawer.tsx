@@ -20,8 +20,12 @@ const Item = memo(({ data }: { data: (typeof MENU_ITEMS)[number] }) => {
     <Button
       className='menuRegular'
       onClick={() => {
-        window.location.hash = data.hash;
-        api?.moveTo(index + 2);
+        if (data.hash === 'popup') {
+          setContext({ type: ActionType.News, state: { enabled: true } });
+        } else {
+          window.location.hash = data.hash;
+          api?.moveTo(index + 2);
+        }
         setContext({ type: ActionType.Menu, state: { enabled: false } });
       }}
     >
@@ -36,6 +40,7 @@ const Item = memo(({ data }: { data: (typeof MENU_ITEMS)[number] }) => {
 const Drawer = memo(({ enabled }: T) => {
   const currentItems = useMemo(() => {
     const front = MENU_ITEMS.filter((_, index) => index < 3);
+    front.unshift({ name: '最新消息', subName: 'news', hash: 'popup' });
     const back = MENU_ITEMS.filter((_, index) => index >= 3);
     return [front, back];
   }, [MENU_ITEMS]);
@@ -45,14 +50,14 @@ const Drawer = memo(({ enabled }: T) => {
       <div className={twMerge(enabled ? 'open' : 'close')}>
         <div className='context'>
           <div>
-            <div className='flex flex-col lg:flex-row w-full space-y-5 lg:space-y-0'>
+            <div className='flex w-full flex-col space-y-5 lg:flex-row lg:space-y-0'>
               {currentItems.map((items, index) => (
                 <div
-                  className='w-full lg:w-1/2 space-y-5 flex flex-col justify-start items-start'
+                  className='flex w-full flex-col items-start justify-start space-y-5 lg:w-1/2'
                   key={index}
                 >
-                  {items.map((item, index2) => (
-                    <Item key={index2} data={item} />
+                  {items.map((item, i) => (
+                    <Item key={i} data={item} />
                   ))}
                 </div>
               ))}

@@ -31,9 +31,7 @@ const Home = memo(() => {
 
   useEffect(() => {
     if (step === HomeStepType.fontLoaded) {
-      //window.location.hash = '';
-      setContext({ type: ActionType.LoadingProcess, state: { enabled: false } });
-      // getData();
+      setContext({ type: ActionType.News, state: { enabled: true } });
     }
   }, [step]);
 
