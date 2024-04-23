@@ -1,31 +1,32 @@
 .Flow {
-  @apply relative w-full h-full;
+  @apply relative h-full w-full;
 
   & > div {
-    @apply absolute select-none hidden lg:block;
+    @apply absolute hidden select-none lg:block;
+
     .context {
       background-color: rgba(255, 255, 255, 0.5);
-      @apply flex flex-col justify-start items-start p-1 md:p-0 font-bold font-noto-bold space-y-1 md:bg-transparent;
+      @apply flex flex-col items-start justify-start space-y-2 p-1 font-noto-bold font-bold md:bg-transparent md:p-0;
 
       & > div {
         @apply whitespace-nowrap;
       }
 
       .sup {
-        @apply text-black text-xl;
+        @apply text-xl text-black;
       }
 
       .body {
         background-color: #f48e8e;
-        @apply relative px-5 py-3 font-bold font-noto-bold text-base lg:text-lg text-black space-y-1;
+        @apply relative space-y-1 px-5 py-3 font-noto-bold text-base font-bold text-black lg:text-lg;
       }
 
       .subtitle {
-        @apply text-xl lg:text-2xl;
+        @apply flex flex-col items-start space-y-2 text-xl lg:text-2xl;
       }
 
       .title {
-        @apply text-3xl lg:text-4xl text-black;
+        @apply text-3xl text-black lg:text-4xl;
       }
 
       .symbols-0 {
@@ -189,40 +190,76 @@
 }
 
 .MobileFlow {
-  background-color: rgba(255, 255, 255, 0.8);
-  @apply w-full p-5;
-  @apply flex flex-col justify-start items-start font-bold font-noto-bold space-y-1;
+  @apply w-full px-10;
+  @apply flex flex-col items-start justify-start space-y-4 font-noto-bold font-bold;
 
   & > div {
     // @apply whitespace-nowrap;
   }
 
   h2 {
-    @apply text-3xl font-bold font-noto-bold text-backgroundColor bg-black w-min p-2;
+    @apply w-min bg-black p-2 font-noto-bold text-3xl font-bold text-backgroundColor;
+  }
+
+  .step {
+    width: image-width(@img) * @scale;
+    height: image-height(@img) * @scale;
+    background-size: 100%;
+
+    @scale: 0.5;
+    @img: './img/step1.jpg';
+  }
+
+  .step1 {
+    background-image: url('./img/step1.jpg');
+  }
+
+  .step2 {
+    background-image: url('./img/step2.jpg');
+  }
+
+  .step3 {
+    background-image: url('./img/step3.jpg');
+  }
+
+  .step4 {
+    background-image: url('./img/step4.jpg');
+  }
+
+  .step5 {
+    background-image: url('./img/step5.jpg');
+  }
+
+  .step6 {
+    background-image: url('./img/step6.jpg');
+  }
+
+  .step7 {
+    background-image: url('./img/step7.jpg');
   }
 
   .title {
-    @apply text-3xl lg:text-4xl text-black;
+    @apply text-4xl text-black;
   }
 
   .subtitle {
-    @apply text-xl lg:text-2xl;
+    @apply flex flex-col space-y-2 text-3xl text-white;
   }
 
   .sup {
-    @apply text-black text-xl;
+    @apply text-xl text-black;
   }
 
   .body {
     background-color: #f48e8e;
-    @apply px-5 py-3 font-bold font-noto-bold text-base lg:text-lg text-black space-y-1 relative;
+    @apply relative w-full space-y-1 px-6 py-3 font-noto-bold text-xl font-bold text-black;
   }
 
   .symbols-0 {
     &::before {
       position: absolute;
-      top: -30px;
-      right: -18px;
+      top: -38px;
+      right: -25px;
       z-index: 10;
       width: image-width(@img) * @scale;
       height: image-height(@img) * @scale;
@@ -230,7 +267,7 @@
       background-size: 100%;
       content: '';
 
-      @scale: 0.5;
+      @scale: 0.6;
       @img: './img/symbols-0.png';
     }
   }
@@ -238,8 +275,8 @@
   .symbols-1 {
     &::before {
       position: absolute;
-      top: -10px;
-      left: -50px;
+      top: -42px;
+      right: 14px;
       z-index: 10;
       width: image-width(@img) * @scale;
       height: image-height(@img) * @scale;
@@ -255,8 +292,8 @@
   .symbols-2 {
     &::before {
       position: absolute;
-      top: -25px;
-      right: -98px;
+      top: -43px;
+      right: 32px;
       z-index: 10;
       width: image-width(@img) * @scale;
       height: image-height(@img) * @scale;
@@ -264,7 +301,7 @@
       background-size: 100%;
       content: '';
 
-      @scale: 0.5;
+      @scale: 0.6;
       @img: './img/symbols-2.png';
     }
   }
@@ -273,7 +310,7 @@
     &::before {
       position: absolute;
       top: -24px;
-      left: -56px;
+      right: 71px;
       z-index: 10;
       width: image-width(@img) * @scale;
       height: image-height(@img) * @scale;
@@ -289,8 +326,8 @@
   .symbols-5 {
     &::before {
       position: absolute;
-      top: -1px;
-      right: -38px;
+      top: -4px;
+      right: 141px;
       z-index: 10;
       width: image-width(@img) * @scale;
       height: image-height(@img) * @scale;

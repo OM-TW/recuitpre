@@ -9,6 +9,7 @@ export const REST_PATH = {
 export const REGISTRATION = [
   'https://forms.gle/8fCKtFXunjMBKRJW7',
   'https://www.104.com.tw/company/9rn61mw?jobsource=index_s_cs',
+  'https://docs.google.com/forms/d/e/1FAIpQLSeGhNZLvrY_rEo8kX2TB3_7cDgydmo335E5S-vv7IWRZ4Dg9A/viewform',
 ];
 
 export const SOCIAL = {

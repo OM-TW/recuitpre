@@ -4,19 +4,19 @@
   @apply relative overflow-hidden;
 
   h1 {
-    @apply font-noto-bold font-bold text-4xl lg:text-5xl xl:text-6xl text-white;
+    @apply font-noto-bold text-4xl font-bold text-white lg:text-5xl xl:text-6xl;
   }
 
   h3 {
-    @apply font-noto-bold font-bold text-xl uppercase text-white mb-5;
+    @apply mb-5 font-noto-bold text-xl font-bold uppercase text-white;
   }
 
   span {
-    @apply text-white font-noto-bold font-bold text-2xl;
+    @apply font-noto-bold text-2xl font-bold text-white;
   }
 
   p {
-    @apply my-10 text-xl lg:text-2xl font-noto-medium font-normal leading-loose;
+    @apply my-10 font-noto-medium text-xl font-normal leading-loose lg:text-2xl;
 
     @media only screen and (min-width: 1024px) {
       & {
@@ -37,6 +37,7 @@
 
     @media only screen and (max-width: 768px) {
       & {
+        margin-left: -58%;
         transform: skew(30deg);
       }
     }
@@ -87,7 +88,7 @@
     @apply flex flex-row items-center space-x-5;
 
     .icon {
-      @apply w-20 h-20;
+      @apply h-20 w-20;
     }
 
     .btn {
@@ -108,7 +109,7 @@
         @scale: 1;
         @img: './img/arrow.png';
 
-        @apply relative w-10 h-10 bg-white rounded-full flex justify-center items-center;
+        @apply relative flex h-10 w-10 items-center justify-center rounded-full bg-white;
 
         &::before {
           width: 100%;
@@ -126,14 +127,14 @@
 
       & > div:nth-child(2) {
         height: 1px;
-        @apply bg-white relative w-20 lg:w-32;
+        @apply relative w-20 bg-white lg:w-32;
 
         &::before {
           position: absolute;
           right: 0;
           bottom: 7px;
           content: 'PREV';
-          @apply text-white text-xs duration-200;
+          @apply text-xs text-white duration-200;
         }
       }
     }
@@ -148,7 +149,7 @@
         @scale: 1;
         @img: './img/arrow.png';
 
-        @apply relative w-10 h-10 bg-white rounded-full flex justify-center items-center;
+        @apply relative flex h-10 w-10 items-center justify-center rounded-full bg-white;
 
         &::before {
           width: 100%;
@@ -167,14 +168,14 @@
 
       & > div:nth-child(1) {
         height: 1px;
-        @apply bg-white relative w-20 lg:w-32;
+        @apply relative w-20 bg-white lg:w-32;
 
         &::before {
           position: absolute;
           bottom: 7px;
           left: 0;
           content: 'NEXT';
-          @apply text-white text-xs;
+          @apply text-xs text-white;
         }
       }
     }
@@ -182,28 +183,28 @@
 
   .ico-0 {
     background-image: url('./img/animals-0.svg');
-    @apply bg-no-repeat bg-center bg-contain transition-transform;
+    @apply bg-contain bg-center bg-no-repeat transition-transform;
   }
 
   .ico-1 {
     background-image: url('./img/animals-1.svg');
     transform: scale(-1, 1);
-    @apply bg-no-repeat bg-center bg-contain transition-transform;
+    @apply bg-contain bg-center bg-no-repeat transition-transform;
   }
 
   .ico-2 {
     background-image: url('./img/animals-2.svg');
-    @apply bg-no-repeat bg-center bg-contain transition-transform;
+    @apply bg-contain bg-center bg-no-repeat transition-transform;
   }
 
   .ico-3 {
     background-image: url('./img/animals-3.svg');
     transform: scale(-1, 1);
-    @apply bg-no-repeat bg-center bg-contain transition-transform;
+    @apply bg-contain bg-center bg-no-repeat transition-transform;
   }
 
   .ico-4 {
     background-image: url('./img/animals-4.svg');
-    @apply bg-no-repeat bg-center bg-contain transition-transform;
+    @apply bg-contain bg-center bg-no-repeat transition-transform;
   }
 }

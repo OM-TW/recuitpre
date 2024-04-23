@@ -4,6 +4,7 @@ import Instagram from './instagram';
 import MenuRegister from './menuRegister';
 import MenuRegular from './menuRegular';
 import Position from './position';
+import OutlineWithArrow from './outlineWifthArrow';
 
 type T = IReactProps & {
   onClick?: () => void;
@@ -24,5 +25,6 @@ Button.Facebook = Facebook;
 Button.Instagram = Instagram;
 Button.MenuRegular = MenuRegular;
 Button.Position = Position;
+Button.OutlineWithArrow = OutlineWithArrow;
 
 export default Button;

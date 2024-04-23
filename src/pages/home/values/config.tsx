@@ -1,9 +1,10 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
+import Swiper from 'swiper';
 
-export type TValuesState = { index: number };
+export type TValuesState = { index: number; swiper: Swiper | null };
 export type TValuesContext = [TValuesState, Dispatch<SetStateAction<TValuesState>>];
 
-export const ValuesState: TValuesState = { index: 0 };
+export const ValuesState: TValuesState = { index: 0, swiper: null };
 export const ValuesContext = createContext<TValuesContext>([ValuesState, () => {}]);
 
 export const ValuesCarousels = [

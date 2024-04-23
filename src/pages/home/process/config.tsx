@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
-import { createContext, Dispatch, SetStateAction } from 'react';
+import { Dispatch, ReactNode, SetStateAction, createContext } from 'react';
 import Flow from './flow';
+import Button from '@/components/button';
+import { REGISTRATION } from '@/settings/config';
 
 export type TProcessState = { index: number | null };
 export type TProcessContext = [TProcessState, Dispatch<SetStateAction<TProcessState>>];
@@ -18,49 +19,59 @@ export const FlowData = [
   {
     sup: '',
     title: '遊戲開始​',
-    subtitle: '2024/4/15 – 5/12 網路報名開跑',
+    subtitle: <span>2024/4/15 – 5/12 網路報名開跑</span>,
     symbols: 'symbols-0',
     body: ['交出你的履歷，讓我們認識你​', '告訴我們：為什麼你認為自己是奧美在找的珍奇異獸？​'],
   },
   {
     sup: '',
     title: 'Ogilvy Night out​',
-    subtitle: '2024/5/2',
+    subtitle: (
+      <>
+        <span>2024/5/2</span>
+        <Button className='pointer-events-auto' onClick={() => window.open(REGISTRATION[2])}>
+          <Button.OutlineWithArrow>
+            <span>立即報名 Ogilvy Night Out</span>
+          </Button.OutlineWithArrow>
+        </Button>
+        <span className='font-noto-bold text-xl font-bold'>報名期間:2024/4/29-5/13</span>
+      </>
+    ),
     symbols: 'symbols-1',
     body: ['Ogilvy night out讓高級玩家為你解惑。'],
   },
   {
     sup: '關卡一:',
     title: '筆試​',
-    subtitle: '2024/5/18',
+    subtitle: <span>2024/5/18</span>,
     symbols: 'symbols-2',
     body: ['秀出你的不同，從下筆開始！​'],
   },
   {
     sup: '關卡二:',
     title: '團體面試​:',
-    subtitle: '2024/6/3-6/7 ​',
+    subtitle: <span>2024/6/3-6/7</span>,
     symbols: 'symbols-3',
     body: ['這是個好機會，可以在團體內展現出你的與眾不同​！'],
   },
   {
     sup: '關卡三:',
     title: '終極面試​​:',
-    subtitle: '2024/6/17-6/21​',
+    subtitle: <span>2024/6/17-6/21</span>,
     symbols: 'symbols-4',
     body: ['萬中選一的珍奇異獸才能來到這裡!'],
   },
   {
     sup: '',
     title: '獲得入場券​​​:',
-    subtitle: '2024/06/28 公布錄取名單​',
+    subtitle: <span>2024/06/28 公布錄取名單</span>,
     symbols: 'symbols-5',
     body: ['嘿，你是最閃耀的珍奇異獸。​'],
   },
   {
     sup: '',
     title: '進入遊樂場​:',
-    subtitle: '2024/07/15 新人到職​',
+    subtitle: <span>2024/07/15 新人到職</span>,
     symbols: 'symbols-6',
     body: ['闖關的終點，是奧美遊樂場的起點。​​'],
   },

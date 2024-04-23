@@ -1,22 +1,22 @@
 .Grid {
-  @apply w-full p-5 lg:p-12 mt-0 lg:mt-36 relative;
+  @apply relative mt-0 w-full p-5 lg:mt-36 lg:p-12;
 
   .content {
     gap: 1px;
-    @apply grid grid-cols-12 pb-36 fixed lg:relative w-full;
+    @apply hidden w-full grid-cols-12 pb-36 lg:grid;
 
     & > div {
       padding-bottom: 100%;
-      @apply w-full relative pointer-events-none;
+      @apply pointer-events-none relative w-full;
 
       & > div {
-        @apply absolute top-0 left-0 right-0 bottom-0 text-white;
+        @apply absolute bottom-0 left-0 right-0 top-0 text-white;
       }
 
       .start {
         width: calc(~'300% + 3rem');
-        @apply absolute h-full bg-black -left-5 lg:-left-12 uppercase flex flex-row justify-end items-center z-10 px-5;
-        @apply text-xs md:text-sm lg:text-2xl font-bold font-noto-bold select-none whitespace-pre-line;
+        @apply absolute -left-5 z-10 flex h-full flex-row items-center justify-end bg-black px-5 uppercase lg:-left-12;
+        @apply select-none whitespace-pre-line font-noto-bold text-xs font-bold md:text-sm lg:text-2xl;
 
         @media only screen and (max-width: 1024px) {
           & {
@@ -50,37 +50,37 @@
 
       .step1 {
         background-image: url('./img/step1.jpg');
-        @apply w-full h-full bg-contain pointer-events-auto;
+        @apply pointer-events-auto h-full w-full bg-contain;
       }
 
       .step2 {
         background-image: url('./img/step2.jpg');
-        @apply w-full h-full bg-contain pointer-events-auto;
+        @apply pointer-events-auto h-full w-full bg-contain;
       }
 
       .step3 {
         background-image: url('./img/step3.jpg');
-        @apply w-full h-full bg-contain pointer-events-auto;
+        @apply pointer-events-auto h-full w-full bg-contain;
       }
 
       .step4 {
         background-image: url('./img/step4.jpg');
-        @apply w-full h-full bg-contain pointer-events-auto;
+        @apply pointer-events-auto h-full w-full bg-contain;
       }
 
       .step5 {
         background-image: url('./img/step5.jpg');
-        @apply w-full h-full bg-contain pointer-events-auto;
+        @apply pointer-events-auto h-full w-full bg-contain;
       }
 
       .step6 {
         background-image: url('./img/step6.jpg');
-        @apply w-full h-full bg-contain pointer-events-auto;
+        @apply pointer-events-auto h-full w-full bg-contain;
       }
 
       .step7 {
         background-image: url('./img/step7.jpg');
-        @apply w-full h-full bg-contain pointer-events-auto;
+        @apply pointer-events-auto h-full w-full bg-contain;
       }
 
       .end {
@@ -89,7 +89,7 @@
         background-image: url('./img/end.png');
         background-size: 60%;
 
-        @apply absolute h-full bg-black z-10 bg-no-repeat bg-center;
+        @apply absolute z-10 h-full bg-black bg-center bg-no-repeat;
       }
     }
   }

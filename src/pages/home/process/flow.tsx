@@ -1,9 +1,8 @@
 import Button from '@/components/button';
-import { Pad } from 'lesca-number';
 import { memo } from 'react';
+import { twMerge } from 'tailwind-merge';
 import { FlowData } from './config';
 import './flow.less';
-import { twMerge } from 'tailwind-merge';
 
 type T = {
   data: (typeof FlowData)[number];
@@ -13,7 +12,7 @@ type T = {
 const Flow = memo(({ data, index }: T) => {
   return (
     <div className='Flow'>
-      <Button className='z-20 absolute w-full h-full bg-white opacity-0 duration-150 active:opacity-30 block lg:hidden'></Button>
+      <Button className='absolute z-20 block h-full w-full bg-white opacity-0 duration-150 active:opacity-30 lg:hidden'></Button>
       <div className={`flow${index}`}>
         <div className='context pointer-events-none'>
           {data.sup && <div className='sup'>{data.sup}</div>}
@@ -34,7 +33,7 @@ export default Flow;
 export const MobileFlow = memo(({ data, index }: T) => {
   return (
     <div className='MobileFlow'>
-      <h2>Step{Pad(index + 1, 2)}</h2>
+      <div className={`step step${index + 1}`} />
       {data.sup && <div className='sup'>{data.sup}</div>}
       <div className='title'>{data.title}</div>
       <div className='subtitle'>{data.subtitle}</div>
