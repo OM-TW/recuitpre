@@ -1,5 +1,6 @@
 import Alert from '@/components/alert';
 import LoadingProcess from '@/components/loadingProcess';
+import News from '@/components/news';
 import { PAGE } from '@/settings/config';
 import { Context, InitialState, Reducer } from '@/settings/constant';
 import '@/settings/global.less';
@@ -50,6 +51,7 @@ const App = () => {
         <Pages />
         {state[ActionType.LoadingProcess]?.enabled && <LoadingProcess />}
         {state[ActionType.Alert]?.enabled && <Alert />}
+        {state[ActionType.News]?.enabled && <News />}
       </Context.Provider>
     </div>
   );

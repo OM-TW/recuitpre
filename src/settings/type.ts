@@ -7,6 +7,7 @@ export enum ActionType {
   Menu = 'menu',
   Alert = 'alert',
   Api = 'api',
+  News = 'news',
 }
 
 export enum LoadingProcessType {
@@ -46,22 +47,23 @@ export type TAlert = {
   enabled: boolean;
 };
 
+export type TNewsState = {
+  enabled?: boolean;
+  html?: string;
+};
+
 export interface IState {
   page?: string;
   loadingProcess?: TLoadingProcessState;
   menu?: TMenuState;
   alert?: TAlert;
   api?: TFullPageAPI;
+  news?: TNewsState;
 }
 
 export interface IAction {
   type: ActionType;
-  state:
-    | IState
-    | Partial<TLoadingProcessState>
-    | Partial<TMenuState>
-    | Partial<TAlert>
-    | Partial<TFullPageAPI>;
+  state: IState | TLoadingProcessState | TMenuState | TAlert | TNewsState | TFullPageAPI;
 }
 
 export type TContext = [IState, Dispatch<IAction>];

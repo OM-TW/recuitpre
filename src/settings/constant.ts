@@ -25,11 +25,17 @@ export const AlertState: TAlert = {
   enabled: false,
 };
 
+export const NewsState = {
+  enabled: true,
+  html: '',
+};
+
 export const InitialState: IState = {
   [ActionType.Page]: PAGE.home,
   [ActionType.LoadingProcess]: LoadingProcessState,
   [ActionType.Menu]: MenuState,
   [ActionType.Alert]: AlertState,
+  [ActionType.News]: NewsState,
   [ActionType.Api]: null,
 };
 
