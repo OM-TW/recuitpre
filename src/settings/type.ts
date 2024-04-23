@@ -71,3 +71,15 @@ export type TContext = [IState, Dispatch<IAction>];
 export interface IReactProps {
   readonly children?: ReactNode;
 }
+
+export type TType = {
+  html: string;
+  timestamp: number;
+};
+
+export type TRespond = {
+  res: boolean;
+  msg: string;
+  collection: string;
+  data: TType[];
+};

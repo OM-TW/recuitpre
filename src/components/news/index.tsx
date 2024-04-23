@@ -1,3 +1,4 @@
+import useInit from '@/hooks/useInit';
 import { Context } from '@/settings/constant';
 import { ActionType, TransitionType } from '@/settings/type';
 import OnloadProvider from 'lesca-react-onload';
@@ -18,15 +19,28 @@ const BG = memo(({ transition, onClose }: T) => {
       setStyle({ opacity: 0.9 }, 200);
     }
   }, [transition]);
+
   return <div style={style} onClick={onClose} />;
 });
 
 const News = memo(() => {
+  const [respond] = useInit();
+  const data = respond?.data[0];
+
+  const [loaded, setLoaded] = useState(false);
+
   const [, setContext] = useContext(Context);
   const [transition, setTransition] = useState(TransitionType.Unset);
 
+  useEffect(() => {
+    if (loaded && data !== undefined) {
+      setContext({ type: ActionType.News, state: { html: data.html } });
+      setTransition(TransitionType.FadeIn);
+    }
+  }, [loaded, data]);
+
   return (
-    <OnloadProvider onload={() => setTransition(TransitionType.FadeIn)}>
+    <OnloadProvider onload={() => setLoaded(true)}>
       <div className='News'>
         <BG
           transition={transition}
