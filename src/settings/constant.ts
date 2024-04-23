@@ -26,7 +26,7 @@ export const AlertState: TAlert = {
 };
 
 export const NewsState = {
-  enabled: true,
+  enabled: false,
   html: '',
 };
 
