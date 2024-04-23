@@ -10,7 +10,7 @@ const Introduction = memo(() => (
       <Article>
         <Block>
           <h3>introduction</h3>
-          <div className='w-full text-center pt-8'>
+          <div className='flex h-full w-full flex-col items-center justify-center pb-24 pt-8 text-center'>
             <h1>什麼是『 奧美新人才來計劃 』？</h1>
             <p>
               這是奧美集團打造的徵才計畫，
