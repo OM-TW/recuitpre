@@ -1,7 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction, createContext } from 'react';
 import Flow from './flow';
-import Button from '@/components/button';
-import { REGISTRATION } from '@/settings/config';
 
 export type TProcessState = { index: number | null };
 export type TProcessContext = [TProcessState, Dispatch<SetStateAction<TProcessState>>];
@@ -25,18 +23,8 @@ export const FlowData = [
   },
   {
     sup: '',
-    title: 'Ogilvy Night out​',
-    subtitle: (
-      <>
-        <span>2024/5/2</span>
-        <Button className='pointer-events-auto' onClick={() => window.open(REGISTRATION[2])}>
-          <Button.OutlineWithArrow>
-            <span>立即報名 Ogilvy Night Out</span>
-          </Button.OutlineWithArrow>
-        </Button>
-        <span className='font-noto-bold text-xl font-bold'>報名期間:2024/4/29-5/13</span>
-      </>
-    ),
+    title: 'Ogilvy Night out',
+    subtitle: <span>2024/5/2</span>,
     symbols: 'symbols-1',
     body: ['Ogilvy night out讓高級玩家為你解惑。'],
   },

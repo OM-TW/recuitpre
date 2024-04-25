@@ -8,6 +8,7 @@ export enum ActionType {
   Alert = 'alert',
   Api = 'api',
   News = 'news',
+  Info = 'info',
 }
 
 export enum LoadingProcessType {
@@ -52,6 +53,12 @@ export type TNewsState = {
   html?: string;
 };
 
+export type HomeInfo = {
+  contacts: string;
+  linkURL: string;
+  schedule: string;
+};
+
 export interface IState {
   page?: string;
   loadingProcess?: TLoadingProcessState;
@@ -59,11 +66,12 @@ export interface IState {
   alert?: TAlert;
   api?: TFullPageAPI;
   news?: TNewsState;
+  info?: HomeInfo;
 }
 
 export interface IAction {
   type: ActionType;
-  state: IState | TLoadingProcessState | TMenuState | TAlert | TNewsState | TFullPageAPI;
+  state: IState | TLoadingProcessState | TMenuState | TAlert | TNewsState | TFullPageAPI | HomeInfo;
 }
 
 export type TContext = [IState, Dispatch<IAction>];
@@ -82,4 +90,17 @@ export type TRespond = {
   msg: string;
   collection: string;
   data: TType[];
+};
+
+export type TInfo = {
+  contacts: string;
+  linkURL: string;
+  schedule: string;
+};
+
+export type TInfoRespond = {
+  res: boolean;
+  msg: string;
+  collection: string;
+  data: TInfo[];
 };

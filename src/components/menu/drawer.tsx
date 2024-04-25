@@ -1,11 +1,12 @@
-import { CONTACT, MENU_ITEMS, SOCIAL } from '@/settings/config';
+import { MENU_ITEMS, SOCIAL } from '@/settings/config';
+import { Context } from '@/settings/constant';
+import { ActionType } from '@/settings/type';
+import { CommaStringToList } from 'lesca-comma-string';
 import { memo, useContext, useMemo } from 'react';
 import Div100vh from 'react-div-100vh';
 import { twMerge } from 'tailwind-merge';
 import Button from '../button';
 import './drawer.less';
-import { Context } from '@/settings/constant';
-import { ActionType } from '@/settings/type';
 
 type T = {
   enabled?: boolean;
@@ -37,11 +38,49 @@ const Item = memo(({ data }: { data: (typeof MENU_ITEMS)[number] }) => {
   );
 });
 
+const Contact = memo(() => {
+  const [context] = useContext(Context);
+  const info = context[ActionType.Info];
+
+  const data = useMemo(() => {
+    if (info) {
+      return CommaStringToList(info.contacts, ['email', 'name']);
+    }
+  }, [info]);
+
+  return (
+    <div>
+      <h2>台灣奧美新人才來計劃聯絡資訊</h2>
+      <span>Contact us</span>
+      <div>
+        <div className='contacts'>
+          {data &&
+            data.map((item) => {
+              return (
+                <a key={JSON.stringify(item)} className='underline' href={`mailto:${item.email}`}>
+                  {item.name}
+                </a>
+              );
+            })}
+        </div>
+        <div className='socials'>
+          <Button onClick={() => window.open(SOCIAL.Facebook)}>
+            <Button.Facebook />
+          </Button>
+          <Button onClick={() => window.open(SOCIAL.Instagram)}>
+            <Button.Instagram />
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+});
+
 const Drawer = memo(({ enabled }: T) => {
   const currentItems = useMemo(() => {
-    const front = MENU_ITEMS.filter((_, index) => index < 3);
+    const front = MENU_ITEMS.filter((_, index) => index < 2);
     front.unshift({ name: '最新消息', subName: 'news', hash: 'popup' });
-    const back = MENU_ITEMS.filter((_, index) => index >= 3);
+    const back = MENU_ITEMS.filter((_, index) => index >= 2);
     return [front, back];
   }, [MENU_ITEMS]);
 
@@ -63,33 +102,7 @@ const Drawer = memo(({ enabled }: T) => {
               ))}
             </div>
           </div>
-          <div>
-            <h2>台灣奧美新人才來計劃聯絡資訊</h2>
-            <span>Contact us</span>
-            <div>
-              <div className='contacts'>
-                {CONTACT.map((data) => {
-                  return (
-                    <a
-                      key={JSON.stringify(data)}
-                      className='underline'
-                      href={`mailto:${data.email}`}
-                    >
-                      {data.name}
-                    </a>
-                  );
-                })}
-              </div>
-              <div className='socials'>
-                <Button onClick={() => window.open(SOCIAL.Facebook)}>
-                  <Button.Facebook />
-                </Button>
-                <Button onClick={() => window.open(SOCIAL.Instagram)}>
-                  <Button.Instagram />
-                </Button>
-              </div>
-            </div>
-          </div>
+          <Contact />
         </div>
       </div>
     </Div100vh>

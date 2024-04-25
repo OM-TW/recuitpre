@@ -1,8 +1,8 @@
-import { REGISTRATION } from '@/settings/config';
 import { Context } from '@/settings/constant';
 import { ActionType } from '@/settings/type';
+import { CommaStringToArray } from 'lesca-comma-string';
 import { Bezier, TweenProvider } from 'lesca-use-tween';
-import React, { memo, useContext, useState } from 'react';
+import React, { memo, useCallback, useContext, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import Button from '../button';
 import { AlertButtonLabels } from './config';
@@ -15,7 +15,16 @@ type T = {
 };
 
 const Btn = memo(({ data, value, index }: T) => {
+  const [context] = useContext(Context);
+  const info = context[ActionType.Info];
   const [state, setState] = value;
+
+  const onClick = useCallback(() => {
+    if (info) {
+      const links = CommaStringToArray(info.linkURL);
+      window.open(links[index], '_blank');
+    }
+  }, [info]);
 
   return (
     <Button
@@ -23,9 +32,7 @@ const Btn = memo(({ data, value, index }: T) => {
       onMouseOver={() => {
         setState({ index });
       }}
-      onClick={() => {
-        window.open(REGISTRATION[index], '_blank');
-      }}
+      onClick={onClick}
     >
       <span>{data.name}</span>
       <span>{data.sub}</span>

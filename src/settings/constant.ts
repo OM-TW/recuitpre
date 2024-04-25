@@ -37,6 +37,7 @@ export const InitialState: IState = {
   [ActionType.Alert]: AlertState,
   [ActionType.News]: NewsState,
   [ActionType.Api]: null,
+  [ActionType.Info]: { contacts: '', linkURL: '', schedule: '' },
 };
 
 export const Context = createContext<TContext>([InitialState, () => {}]);
