@@ -40,7 +40,7 @@ const Flow = memo(({ data, index }: T) => {
                   onClick={() => window.open(dataFromAPI?.link)}
                 >
                   <Button.OutlineWithArrow>
-                    <span>立即報名 Ogilvy Night Out</span>
+                    <span>立即報名 Ogilvy night out</span>
                   </Button.OutlineWithArrow>
                 </Button>
                 <span className='font-noto-bold text-xl font-bold'>{dataFromAPI?.time}</span>
@@ -82,7 +82,7 @@ export const MobileFlow = memo(({ data, index }: T) => {
           <>
             <Button className='pointer-events-auto' onClick={() => window.open(dataFromAPI?.link)}>
               <Button.OutlineWithArrow>
-                <span>立即報名 Ogilvy Night Out</span>
+                <span>立即報名 Ogilvy night out</span>
               </Button.OutlineWithArrow>
             </Button>
             <span className='font-noto-bold text-xl font-bold'>{dataFromAPI?.time}</span>
