@@ -23,10 +23,10 @@ export const FlowData = [
   },
   {
     sup: '',
-    title: 'Ogilvy night out',
+    title: 'Ogilvy Night Out',
     subtitle: <span>2024/5/2</span>,
     symbols: 'symbols-1',
-    body: ['Ogilvy night out讓高級玩家為你解惑。'],
+    body: ['Ogilvy Night Out讓高級玩家為你解惑。'],
   },
   {
     sup: '關卡一:',
