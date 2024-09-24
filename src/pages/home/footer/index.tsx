@@ -23,7 +23,7 @@ const Info = memo(() => {
     <div className='relative flex h-52 w-full justify-center bg-black'>
       <div className='flex h-full w-full max-w-[500px] flex-col items-center justify-center space-y-3 lg:max-w-[768px]'>
         <p className='w-full text-left text-xl text-white'>台灣奧美新人才來計劃聯絡資訊</p>
-        <p className='w-full space-x-7 text-left text-white'>
+        <p className='flex w-full space-x-7 text-left text-white'>
           {contact &&
             contact.map((data) => {
               return (
@@ -74,6 +74,22 @@ const Footer = memo(() => {
               </Button>
             </div>
             <Info />
+            <div className='flex w-full space-x-5 bg-OM-gray-400 p-5 text-white'>
+              <a
+                href='https://www.ogilvy.com/tw/privacy-policy'
+                target='_blank'
+                className='font-noto-regular text-base font-light underline underline-offset-4 hover:text-backgroundColor'
+              >
+                隱私聲明
+              </a>
+              <a
+                href='https://www.ogilvy.com/tw/cookies'
+                target='_blank'
+                className='font-noto-regular text-base font-light underline underline-offset-4 hover:text-backgroundColor'
+              >
+                Cookies
+              </a>
+            </div>
           </div>
         </Article>
       </Div100vh>

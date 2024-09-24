@@ -24,3 +24,9 @@ export const HomeState: THomeState = {
   step: HomeStepType.unset,
 };
 export const HomeContext = createContext<THomeContext>([HomeState, () => {}]);
+
+const error = console.error;
+console.error = (...args: any) => {
+  if (/fullPage/.test(args[0])) return;
+  error(...args);
+};
