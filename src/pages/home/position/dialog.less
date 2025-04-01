@@ -1,16 +1,16 @@
 .Dialog {
   background-color: #eeeeee;
-  @apply relative w-full p-10 my-10 border border-black flex flex-col justify-start items-start space-y-5;
+  @apply relative my-10 flex w-full flex-col items-start justify-start space-y-5 border border-black p-10;
 
   .title {
-    @apply text-2xl font-noto-bold font-bold text-backgroundColor;
+    @apply font-noto-bold text-2xl font-bold text-backgroundColor;
   }
 
   .headline {
-    @apply w-1/2 flex flex-row justify-between items-center;
+    @apply flex w-1/2 flex-row items-center justify-between;
 
     & > div:nth-child(1) {
-      @apply pr-8 font-bold font-noto-bold text-2xl;
+      @apply pr-8 font-noto-bold text-2xl font-bold;
     }
 
     &::after {
@@ -22,7 +22,7 @@
   }
 
   .body {
-    @apply text-xl font-normal font-noto-regular;
+    @apply font-noto-regular text-xl font-normal;
   }
 
   &::before {
@@ -44,7 +44,7 @@
     height: image-height(@img) * @scale;
     background-image: url(@img);
     background-size: 100%;
-    content: '';
+    // content: '';
 
     @scale: 0.66;
     @img: './img/arrow.png';
