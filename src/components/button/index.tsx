@@ -4,7 +4,7 @@ import Instagram from './instagram';
 import MenuRegister from './menuRegister';
 import MenuRegular from './menuRegular';
 import Position from './position';
-import OutlineWithArrow from './outlineWifthArrow';
+import OutlineWithArrow from './outlineWithArrow';
 import Close from './close';
 import News from './news';
 

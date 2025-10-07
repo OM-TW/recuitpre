@@ -1,15 +1,13 @@
-import { Fragment, memo, useContext, useEffect, useMemo } from 'react';
-import './dialog.less';
-import { PositionContext, PositionDialogContent } from './config';
+import { Fragment, memo, useContext, useMemo } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { PositionContext, PositionDialogContent } from './config';
+import './dialog.less';
 
 const Dialog = memo(() => {
   const [state] = useContext(PositionContext);
   const { index } = state;
-
   const data = useMemo(() => PositionDialogContent[index], [index]);
 
-  useEffect(() => {}, []);
   return (
     <div className={twMerge('Dialog', index === 0 ? 'r0' : 'r1')}>
       <div className='title'>{data.title}</div>
@@ -24,7 +22,7 @@ const Dialog = memo(() => {
             <div className='w-full'>
               {each.content.map((content) => {
                 return (
-                  <p className='my-1 body' key={content}>
+                  <p className='body my-1' key={content}>
                     {content}
                   </p>
                 );

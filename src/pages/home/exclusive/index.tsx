@@ -12,7 +12,7 @@ const Exclusive = memo(() => (
         <Block>
           <h3>Exclusive Pack</h3>
           <h1>新人才有的酷東東</h1>
-          <div className='w-full mt-10 flex flex-wrap justify-center'>
+          <div className='mt-10 flex w-full flex-wrap justify-center'>
             {ExclusivePacks.map((data, index) => (
               <Box key={JSON.stringify(data)} data={data} index={index} />
             ))}

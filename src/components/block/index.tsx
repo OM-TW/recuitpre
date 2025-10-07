@@ -1,11 +1,7 @@
-import { memo, useEffect } from 'react';
 import { IReactProps } from '@/settings/type';
-import './index.less';
+import { memo } from 'react';
 
-const Block = memo(({ children }: IReactProps) => {
-  useEffect(() => {}, []);
-  return (
-    <div className='Block w-full px-5 md:px-12 lg:px-24 h-full py-10 relative'>{children}</div>
-  );
-});
+const Block = memo(({ children }: IReactProps) => (
+  <div className='Block relative h-full w-full px-5 py-10 md:px-12 lg:px-24'>{children}</div>
+));
 export default Block;

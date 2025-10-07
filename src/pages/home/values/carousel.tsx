@@ -10,18 +10,16 @@ type T = {
   index: number;
 };
 
-const Slide = memo(({ data, index }: T) => {
-  return (
-    <div className='context'>
-      <div className={twMerge('image', `img-${index}`)} />
-      <div className='texts'>
-        <div className='name'>{data.name}</div>
-        <div className='brief'>{data.brief}</div>
-        <div className='description'>{data.description}</div>
-      </div>
+const Slide = memo(({ data, index }: T) => (
+  <div className='context'>
+    <div className={twMerge('image', `img-${index}`)} />
+    <div className='texts'>
+      <div className='name'>{data.name}</div>
+      <div className='brief'>{data.brief}</div>
+      <div className='description'>{data.description}</div>
     </div>
-  );
-});
+  </div>
+));
 
 const Carousel = memo(() => {
   const ref = useRef<HTMLDivElement>(null);

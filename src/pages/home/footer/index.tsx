@@ -10,9 +10,7 @@ import './index.less';
 const Info = memo(() => {
   const [context] = useContext(Context);
   const api = context[ActionType.Api];
-
   const info = context[ActionType.Info];
-
   const contact = useMemo(() => {
     if (info) {
       return CommaStringToList(info.contacts, ['email', 'name']);

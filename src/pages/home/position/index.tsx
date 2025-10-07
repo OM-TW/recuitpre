@@ -1,15 +1,14 @@
 import Article from '@/components/article';
-import { memo, useEffect, useState } from 'react';
+import Block from '@/components/block';
+import { memo, useState } from 'react';
 import { PositionContext, PositionState } from './config';
+import Dialog from './dialog';
 import './index.less';
 import Tablist from './tablist';
-import Dialog from './dialog';
-import Block from '@/components/block';
 
 const Position = memo(() => {
   const value = useState(PositionState);
 
-  useEffect(() => {}, []);
   return (
     <div className='section'>
       <div className='Position'>

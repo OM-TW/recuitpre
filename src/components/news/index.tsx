@@ -1,10 +1,9 @@
+import useInit from '@/hooks/useInit';
 import { Context } from '@/settings/constant';
 import { ActionType, TransitionType } from '@/settings/type';
 import useTween, { Bezier } from 'lesca-use-tween';
 import { memo, useContext, useEffect, useMemo, useState } from 'react';
 import Button from '../button';
-
-import useInit from '@/hooks/useInit';
 import './index.less';
 
 const Dialog = memo(({ html, transition }: { html: string; transition: TransitionType }) => {
